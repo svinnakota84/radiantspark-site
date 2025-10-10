@@ -5,47 +5,142 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Radiant Spark LLC</title>
   <style>
+    /* Reset & base */
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       line-height: 1.6;
       color: #333;
+      background: #f9f9f9;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
     }
+    a {
+      color: #1a73e8;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+
+    /* Header */
     header {
-      background: #2d2d2d;
-      color: #fff;
-      padding: 40px 20px;
+      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+      color: white;
+      padding: 60px 20px;
       text-align: center;
+      box-shadow: 0 4px 6px rgb(0 0 0 / 0.1);
     }
     header h1 {
       margin: 0;
-      font-size: 2.5rem;
+      font-size: 3rem;
+      letter-spacing: 2px;
+      font-weight: 700;
     }
     header p {
-      font-size: 1.2rem;
+      margin-top: 10px;
+      font-size: 1.4rem;
+      font-weight: 400;
+      opacity: 0.8;
+    }
+
+    /* Main content sections */
+    main {
+      flex: 1;
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 0 20px;
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 8px 24px rgb(0 0 0 / 0.1);
     }
     section {
-      padding: 40px 20px;
-      max-width: 800px;
-      margin: auto;
+      padding: 40px 30px;
+      border-bottom: 1px solid #eee;
     }
+    section:last-child {
+      border-bottom: none;
+    }
+    h2 {
+      font-weight: 600;
+      font-size: 2rem;
+      margin-bottom: 20px;
+      color: #0f3057;
+    }
+    p {
+      font-size: 1.1rem;
+      color: #444;
+    }
+
+    /* Services list */
     .services ul {
       list-style: none;
       padding: 0;
+      margin: 0;
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+      gap: 12px;
+    }
+    .services li {
+      background: #e3f2fd;
+      color: #0d47a1;
+      padding: 15px 20px;
+      border-radius: 5px;
+      font-weight: 600;
+      box-shadow: 1px 2px 6px rgb(13 71 161 / 0.2);
+      position: relative;
     }
     .services li::before {
       content: "✔";
-      margin-right: 8px;
-      color: green;
+      position: absolute;
+      left: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #1a73e8;
+      font-weight: 900;
+      font-size: 1.2rem;
     }
+
+    /* Contact */
+    section p a {
+      font-weight: 600;
+    }
+
+    /* Footer */
     footer {
       text-align: center;
-      padding: 20px;
-      background: #f4f4f4;
+      padding: 20px 15px;
+      background: #0f2027;
+      color: #bbb;
       font-size: 0.9rem;
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1);
+      margin-top: auto;
     }
-    a {
-      color: #0066cc;
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 2.2rem;
+      }
+      header p {
+        font-size: 1rem;
+      }
+      main {
+        margin: 20px 10px;
+      }
+      section {
+        padding: 30px 15px;
+      }
+      h2 {
+        font-size: 1.5rem;
+      }
+      .services ul {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 </head>
@@ -53,35 +148,37 @@
 
   <header>
     <h1>Radiant Spark LLC</h1>
-    <p>Innovative IT & Software Solutions</p>
+    <p>Innovative IT &amp; Software Solutions</p>
   </header>
 
-  <section>
-    <h2>About Us</h2>
-    <p>
-      Radiant Spark LLC is a forward-thinking IT and software development company
-      delivering reliable and scalable solutions for businesses of all sizes. We specialize
-      in custom software, cloud services, and digital transformation.
-    </p>
-  </section>
+  <main>
+    <section>
+      <h2>About Us</h2>
+      <p>
+        Radiant Spark LLC is a forward-thinking IT and software development company
+        delivering reliable and scalable solutions for businesses of all sizes. We specialize
+        in custom software, cloud services, and digital transformation.
+      </p>
+    </section>
 
-  <section class="services">
-    <h2>Our Services</h2>
-    <ul>
-      <li>Custom Software Development</li>
-      <li>Cloud Infrastructure & DevOps</li>
-      <li>IT Consulting & System Integration</li>
-      <li>Web & Mobile App Development</li>
-      <li>AI and Data Analytics</li>
-    </ul>
-  </section>
+    <section class="services">
+      <h2>Our Services</h2>
+      <ul>
+        <li>Custom Software Development</li>
+        <li>Cloud Infrastructure &amp; DevOps</li>
+        <li>IT Consulting &amp; System Integration</li>
+        <li>Web &amp; Mobile App Development</li>
+        <li>AI and Data Analytics</li>
+      </ul>
+    </section>
 
-  <section>
-    <h2>Contact Us</h2>
-    <p>Email: <a href="mailto:contact@radiantsparkllc.com">contact@radiantsparkllc.com</a></p>
-    <p>Phone: (123) 456-7890</p>
-    <p>Location: Your City, Your State</p>
-  </section>
+    <section>
+      <h2>Contact Us</h2>
+      <p>Email: <a href="mailto:contact@radiantsparkllc.com">contact@radiantsparkllc.com</a></p>
+      <p>Phone: <a href="tel:+17077023415">707-702-3415</a></p>
+      <p>Location: Cyrus Crest Circle NW, Kennesaw, GA, 30152</p>
+    </section>
+  </main>
 
   <footer>
     &copy; 2025 Radiant Spark LLC. All rights reserved.
