@@ -135,16 +135,6 @@
       text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.6);
     }
 
-    /* Contact */
-    section p a {
-      font-weight: 700;
-      color: #2980b9;
-      transition: color 0.3s ease;
-    }
-    section p a:hover {
-      color: #16a085;
-    }
-
     /* Footer */
     footer {
       text-align: center;
@@ -160,28 +150,90 @@
 
     /* Responsive */
     @media (max-width: 600px) {
-      header h1 {
-        font-size: 2.2rem;
-      }
-      header p {
-        font-size: 1.1rem;
-      }
-      main {
-        margin: 20px 15px;
-      }
-      section {
-        padding: 30px 20px;
-      }
-      h2 {
-        font-size: 1.8rem;
-      }
-      .services ul {
-        grid-template-columns: 1fr;
-      }
-      .services li {
-        font-size: 1.1rem;
-        padding: 16px 20px;
-      }
+      header h1 { font-size: 2.2rem; }
+      header p { font-size: 1.1rem; }
+      main { margin: 20px 15px; }
+      section { padding: 30px 20px; }
+      h2 { font-size: 1.8rem; }
+      .services ul { grid-template-columns: 1fr; }
+      .services li { font-size: 1.1rem; padding: 16px 20px; }
+    }
+
+    /* Chatbox Styles */
+    #chat-toggle {
+      position: fixed;
+      bottom: 25px;
+      right: 25px;
+      background: linear-gradient(135deg, #6a11cb, #2575fc);
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      font-size: 28px;
+      cursor: pointer;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+      transition: transform 0.3s ease;
+      z-index: 1000;
+    }
+    #chat-toggle:hover {
+      transform: scale(1.1);
+    }
+    #chatbox {
+      position: fixed;
+      bottom: 100px;
+      right: 25px;
+      width: 320px;
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+      display: none;
+      flex-direction: column;
+      overflow: hidden;
+      z-index: 999;
+      animation: fadeIn 0.3s ease;
+    }
+    #chatbox-header {
+      background: linear-gradient(135deg, #6a11cb, #2575fc);
+      color: white;
+      padding: 12px;
+      text-align: center;
+      font-weight: 700;
+      font-size: 1rem;
+    }
+    #chatbox-messages {
+      padding: 10px;
+      height: 280px;
+      overflow-y: auto;
+      font-size: 0.9rem;
+    }
+    #chatbox-form {
+      display: flex;
+      border-top: 1px solid #ddd;
+    }
+    #chatbox-input {
+      flex: 1;
+      padding: 8px;
+      border: none;
+      outline: none;
+      font-size: 0.9rem;
+    }
+    #chatbox-send {
+      background: #2575fc;
+      color: white;
+      border: none;
+      padding: 8px 14px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background 0.3s ease;
+    }
+    #chatbox-send:hover {
+      background: #1abc9c;
+    }
+
+    @keyframes fadeIn {
+      from {opacity: 0; transform: translateY(10px);}
+      to {opacity: 1; transform: translateY(0);}
     }
   </style>
 </head>
@@ -222,13 +274,59 @@
   </main>
 
   <footer>
-    <script>
-      console.log("Radiant Spark LLC - Technology that powers progress.");
-    </script>
     <p style="font-size: 14px; color: #dcdde1;">
       &copy; 2025 Radiant Spark LLC. All rights reserved.
     </p>
   </footer>
+
+  <!-- AI Chatbox -->
+  <button id="chat-toggle">💬</button>
+
+  <div id="chatbox">
+    <div id="chatbox-header">💡 Radiant Spark AI Assistant</div>
+    <div id="chatbox-messages"></div>
+    <form id="chatbox-form">
+      <input id="chatbox-input" type="text" placeholder="Ask me anything..." autocomplete="off" />
+      <button id="chatbox-send" type="submit">Send</button>
+    </form>
+  </div>
+
+  <script>
+    const toggle = document.getElementById('chat-toggle');
+    const chatbox = document.getElementById('chatbox');
+    const form = document.getElementById('chatbox-form');
+    const input = document.getElementById('chatbox-input');
+    const messages = document.getElementById('chatbox-messages');
+
+    toggle.addEventListener('click', () => {
+      chatbox.style.display = chatbox.style.display === 'flex' ? 'none' : 'flex';
+    });
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const msg = input.value.trim();
+      if (!msg) return;
+
+      messages.innerHTML += `<p><strong>You:</strong> ${msg}</p>`;
+      input.value = '';
+      messages.scrollTop = messages.scrollHeight;
+
+      try {
+        const res = await fetch('https://your-n8n-instance.com/webhook/chat', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ message: msg }),
+        });
+        const data = await res.json();
+        const reply = data.reply || 'Sorry, I could not process that.';
+        messages.innerHTML += `<p><strong>AI:</strong> ${reply}</p>`;
+      } catch (err) {
+        messages.innerHTML += `<p><strong>AI:</strong> (Error connecting to the server)</p>`;
+      }
+
+      messages.scrollTop = messages.scrollHeight;
+    });
+  </script>
 
 </body>
 </html>
