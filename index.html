@@ -1,44 +1,104 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Radiant Spark LLC - Real Estate</title>
-  <meta name="description" content="Radiant Spark Real Estate LLC offers luxury homes, investment properties, and personalized real estate services in Georgia.">
-  <meta name="keywords" content="Radiant Spark, real estate, luxury homes, Georgia properties, investment properties">
-  <style>
-    /* Base CSS same as IT page */
-    *, *::before, *::after { box-sizing: border-box; }
-    body { margin:0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background:#ecf0f1; color:#2c3e50; display:flex; flex-direction:column; min-height:100vh; }
-    a { color:#2980b9; text-decoration:none; transition:0.3s; }
-    a:hover { color:#1abc9c; text-decoration:underline; }
-    header { background:linear-gradient(135deg,#1E3A8A,#3B82F6); color:white; padding:40px 20px; text-align:center; box-shadow:0 4px 8px rgba(0,0,0,0.2);}
-    header h1 { margin:0; font-size:2.8rem; }
-    nav { margin-top:20px; }
-    nav a { margin:0 15px; font-weight:600; }
-    main { flex:1; max-width:900px; margin:30px auto; padding:0 20px; background:white; border-radius:12px; box-shadow:0 12px 30px rgba(0,0,0,0.12); overflow:hidden;}
-    section { padding:50px 40px; border-bottom:2px solid #f0f3f7; }
-    section:last-child { border-bottom:none; }
-    h2 { font-weight:700; font-size:2rem; margin-bottom:20px; }
-    p { font-size:1.1rem; }
-    .services ul { list-style:none; display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:15px; padding:0; }
-    .services li { background:linear-gradient(135deg,#F59E0B,#FFAFBD); color:#4a235a; padding:15px; border-radius:12px; font-weight:700; }
-    footer { text-align:center; padding:20px; background:linear-gradient(135deg,#1E3A8A,#3B82F6); color:#dcdde1; }
-    #chat-toggle { position:fixed; bottom:25px; right:25px; width:60px; height:60px; border:none; border-radius:50%; background:linear-gradient(135deg,#1E3A8A,#3B82F6); color:white; font-size:28px; cursor:pointer; box-shadow:0 6px 15px rgba(0,0,0,0.3); z-index:1000; }
-    #chatbox { position:fixed; bottom:100px; right:25px; width:320px; background:white; border-radius:16px; box-shadow:0 8px 24px rgba(0,0,0,0.2); display:none; flex-direction:column; overflow:hidden; z-index:999; }
-    #chatbox-header { background:linear-gradient(135deg,#1E3A8A,#3B82F6); color:white; padding:12px; text-align:center; font-weight:700; }
-    #chatbox-messages { padding:10px; height:280px; overflow-y:auto; font-size:0.9rem; }
-    #chatbox-form { display:flex; border-top:1px solid #ddd; }
-    #chatbox-input { flex:1; padding:8px; border:none; outline:none; font-size:0.9rem; }
-    #chatbox-send { background:#3B82F6; color:white; border:none; padding:8px 14px; cursor:pointer; font-weight:bold; }
-    #chatbox-send:hover { background:#F59E0B; }
-  </style>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Radiant Spark LLC - IT Services</title>
+<meta name="description" content="Radiant Spark LLC provides professional IT services, digital solutions, and cloud support for businesses in Georgia.">
+<style>
+/* Shared base styling */
+*, *::before, *::after { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #f4f8fb;
+  color: #2c3e50;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+a { color: #2563eb; text-decoration: none; transition: 0.3s; }
+a:hover { color: #16a085; text-decoration: underline; }
+
+header {
+  background: linear-gradient(135deg,#1E3A8A,#3B82F6);
+  color: white;
+  padding: 40px 20px;
+  text-align: center;
+}
+header h1 { margin: 0; font-size: 2.8rem; }
+nav { margin-top: 20px; }
+nav a { margin: 0 15px; font-weight: 600; color: #f8fafc; }
+
+main {
+  flex: 1;
+  max-width: 1000px;
+  margin: 30px auto;
+  padding: 0 20px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.12);
+}
+.hero {
+  background: url('https://images.unsplash.com/photo-1556761175-4b46a572b786?auto=format&fit=crop&w=1500&q=80') center/cover no-repeat;
+  color: white;
+  padding: 100px 40px;
+  text-align: center;
+  border-radius: 12px 12px 0 0;
+}
+h2 { font-weight: 700; font-size: 2rem; margin-bottom: 20px; }
+section { padding: 40px; border-bottom: 2px solid #f0f3f7; }
+section:last-child { border-bottom: none; }
+
+.services ul {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+  gap: 15px;
+  padding: 0;
+}
+.services li {
+  background: linear-gradient(135deg,#16a085,#1abc9c);
+  color: white;
+  padding: 15px;
+  border-radius: 12px;
+  font-weight: 600;
+}
+
+footer {
+  text-align: center;
+  padding: 20px;
+  background: linear-gradient(135deg,#1E3A8A,#3B82F6);
+  color: #f0f4f8;
+}
+
+/* Chat */
+#chat-toggle {
+  position: fixed; bottom: 25px; right: 25px; width: 60px; height: 60px;
+  border: none; border-radius: 50%; background: linear-gradient(135deg,#1E3A8A,#3B82F6);
+  color: white; font-size: 28px; cursor: pointer; box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+}
+#chatbox {
+  position: fixed; bottom: 100px; right: 25px; width: 320px;
+  background: white; border-radius: 16px; box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+  display: none; flex-direction: column; overflow: hidden;
+}
+#chatbox-header {
+  background: linear-gradient(135deg,#1E3A8A,#3B82F6);
+  color: white; padding: 12px; text-align: center; font-weight: 700;
+}
+#chatbox-messages { padding: 10px; height: 280px; overflow-y: auto; font-size: 0.9rem; }
+#chatbox-form { display: flex; border-top: 1px solid #ddd; }
+#chatbox-input { flex: 1; padding: 8px; border: none; outline: none; font-size: 0.9rem; }
+#chatbox-send { background: #3B82F6; color: white; border: none; padding: 8px 14px; cursor: pointer; font-weight: bold; }
+#chatbox-send:hover { background: #F59E0B; }
+</style>
 </head>
 <body>
 
 <header>
-  <h1>Radiant Spark Real Estate LLC</h1>
-  <p>Luxury Homes & Investment Properties in Georgia</p>
+  <h1>Radiant Spark LLC</h1>
+  <p>Empowering Businesses with Technology</p>
   <nav>
     <a href="index.html">IT Services</a>
     <a href="real-estate.html">Real Estate</a>
@@ -47,41 +107,33 @@
 </header>
 
 <main>
+  <div class="hero">
+    <h2>Cutting-Edge IT Solutions for Modern Businesses</h2>
+  </div>
   <section>
-    <h2>About Real Estate</h2>
-    <p>We provide personalized real estate services in Georgia, specializing in luxury homes, investment properties, and smooth transactions.</p>
+    <h2>Our IT Expertise</h2>
+    <p>We specialize in cloud integration, web development, cybersecurity, and business automation that drive digital transformation and efficiency.</p>
   </section>
-
   <section class="services">
-    <h2>Our Real Estate Services</h2>
+    <h2>Services We Offer</h2>
     <ul>
-      <li>Luxury Home Buying & Selling</li>
-      <li>Investment Property Consulting</li>
-      <li>Property Valuation & Market Analysis</li>
-      <li>Real Estate Transaction Management</li>
-      <li>Home Staging & Marketing Services</li>
+      <li>Cloud Infrastructure</li>
+      <li>Custom Web Applications</li>
+      <li>Data Backup & Security</li>
+      <li>IT Consulting</li>
+      <li>AI Integration</li>
     </ul>
-  </section>
-
-  <section>
-    <h2>Contact Us</h2>
-    <p>Email: <a href="mailto:contact@radiantsparkrealestate.com">contact@radiantsparkrealestate.com</a></p>
-    <p>Phone: <a href="tel:+17077023415">+1-707-702-3415</a></p>
-    <p>Location: Cyrus Crest Circle, Kennesaw, GA, 30152</p>
   </section>
 </main>
 
-<footer>
-  <p>&copy; 2025 Radiant Spark LLC. All rights reserved.</p>
-</footer>
+<footer>&copy; 2025 Radiant Spark LLC. All rights reserved.</footer>
 
-<!-- AI Chatbox -->
 <button id="chat-toggle">💬</button>
 <div id="chatbox">
   <div id="chatbox-header">💡 Radiant Spark AI Assistant</div>
   <div id="chatbox-messages"></div>
   <form id="chatbox-form">
-    <input id="chatbox-input" type="text" placeholder="Ask me about properties..." autocomplete="off"/>
+    <input id="chatbox-input" type="text" placeholder="Ask me about our IT services..." autocomplete="off"/>
     <button id="chatbox-send" type="submit">Send</button>
   </form>
 </div>
@@ -92,21 +144,16 @@ const chatbox = document.getElementById('chatbox');
 const form = document.getElementById('chatbox-form');
 const input = document.getElementById('chatbox-input');
 const messages = document.getElementById('chatbox-messages');
-
-toggle.addEventListener('click', () => {
-  chatbox.style.display = chatbox.style.display === 'flex' ? 'none' : 'flex';
-  chatbox.style.flexDirection = 'column';
-});
-
-form.addEventListener('submit', (e) => {
-  e.preventDefault();
-  const msg = input.value.trim();
-  if(!msg) return;
-  messages.innerHTML += `<p><strong>You:</strong> ${msg}</p>`;
-  input.value = '';
-  messages.scrollTop = messages.scrollHeight;
-  messages.innerHTML += `<p><strong>AI:</strong> Hello! I'm here to assist with Real Estate, IT, or Flip & Fix questions!</p>`;
-  messages.scrollTop = messages.scrollHeight;
+toggle.addEventListener('click',()=>{chatbox.style.display=chatbox.style.display==='flex'?'none':'flex';chatbox.style.flexDirection='column';});
+form.addEventListener('submit',e=>{
+e.preventDefault();
+const msg=input.value.trim();
+if(!msg)return;
+messages.innerHTML+=`<p><strong>You:</strong> ${msg}</p>`;
+input.value='';
+messages.scrollTop=messages.scrollHeight;
+messages.innerHTML+=`<p><strong>AI:</strong> Thanks for your message! We’ll get back to you soon.</p>`;
+messages.scrollTop=messages.scrollHeight;
 });
 </script>
 
