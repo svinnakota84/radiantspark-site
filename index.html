@@ -4,10 +4,10 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Radiant Spark LLC</title>
-<meta name="description" content="Radiant Spark LLC offers IT services, real estate solutions, and home renovation expertise across Georgia.">
+<meta name="description" content="Radiant Spark LLC offers IT services, real estate, and home renovation expertise in Georgia.">
 
 <style>
-/* ===== Base Styling ===== */
+/* ===== Base Styles ===== */
 *, *::before, *::after { box-sizing: border-box; }
 body {
   margin: 0;
@@ -17,15 +17,18 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  overflow-x: hidden;
 }
-a { color: #2563eb; text-decoration: none; transition: 0.3s; }
+a { color: #2563eb; text-decoration: none; transition: 0.3s; cursor: pointer; }
 a:hover { color: #1abc9c; text-decoration: underline; }
 
+/* ===== Header ===== */
 header {
   background: linear-gradient(135deg,#1E3A8A,#3B82F6);
   color: white;
   padding: 40px 20px;
   text-align: center;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
 }
 header h1 { margin: 0; font-size: 2.8rem; }
 nav { margin-top: 20px; }
@@ -33,9 +36,9 @@ nav a {
   margin: 0 15px;
   font-weight: 600;
   color: #f8fafc;
-  cursor: pointer;
 }
 
+/* ===== Page Container ===== */
 main {
   flex: 1;
   max-width: 1100px;
@@ -45,6 +48,7 @@ main {
   border-radius: 12px;
   box-shadow: 0 12px 30px rgba(0,0,0,0.12);
   overflow: hidden;
+  position: relative;
 }
 
 /* ===== Hero Sections ===== */
@@ -55,6 +59,7 @@ main {
   border-radius: 12px 12px 0 0;
   background-size: cover;
   background-position: center;
+  transition: opacity 1s ease;
 }
 #it-hero { background-image: url('https://images.unsplash.com/photo-1556761175-4b46a572b786?auto=format&fit=crop&w=1500&q=80'); }
 #real-hero { background-image: url('https://images.unsplash.com/photo-1572120360610-d971b9b78830?auto=format&fit=crop&w=1500&q=80'); }
@@ -81,6 +86,7 @@ p { font-size: 1.1rem; }
   text-align: center;
 }
 
+/* ===== Footer ===== */
 footer {
   text-align: center;
   padding: 20px;
@@ -114,9 +120,22 @@ footer {
 #chatbox-send { background: #3B82F6; color: white; border: none; padding: 8px 14px; cursor: pointer; font-weight: bold; }
 #chatbox-send:hover { background: #F59E0B; }
 
-/* ===== Hide Pages ===== */
-.page { display: none; }
-.active { display: block; }
+/* ===== Page Transitions ===== */
+.page {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: white;
+  opacity: 0;
+  transform: scale(0.98);
+  pointer-events: none;
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.page.active {
+  opacity: 1;
+  transform: scale(1);
+  pointer-events: auto;
+  position: relative;
+}
 </style>
 </head>
 <body>
@@ -125,14 +144,13 @@ footer {
   <h1>Radiant Spark LLC</h1>
   <p>Technology • Real Estate • Renovation Experts</p>
   <nav>
-    <a onclick="showPage('it-page')">IT Services</a>
-    <a onclick="showPage('real-page')">Real Estate</a>
-    <a onclick="showPage('flip-page')">Flip & Fix</a>
+    <a href="#it">IT Services</a>
+    <a href="#real-estate">Real Estate</a>
+    <a href="#flip">Flip & Fix</a>
   </nav>
 </header>
 
 <main>
-
   <!-- ========== IT SERVICES PAGE ========== -->
   <div id="it-page" class="page active">
     <div id="it-hero" class="hero">
@@ -140,67 +158,66 @@ footer {
     </div>
     <section>
       <h2>About Our IT Services</h2>
-      <p>At Radiant Spark LLC, we deliver modern IT solutions including cloud integration, custom software, and cybersecurity support tailored for your business growth.</p>
+      <p>We deliver modern IT solutions including cloud integration, web development, and cybersecurity support tailored to your business needs.</p>
     </section>
     <section class="services">
       <h2>Our IT Solutions</h2>
       <ul>
         <li>Cloud Infrastructure</li>
         <li>Custom Web Applications</li>
-        <li>Data Backup & Security</li>
+        <li>Data Security & Backup</li>
         <li>AI Automation</li>
-        <li>IT Support Consulting</li>
+        <li>24/7 IT Support</li>
       </ul>
     </section>
   </div>
 
   <!-- ========== REAL ESTATE PAGE ========== -->
   <div id="real-page" class="page">
-    <div id="real-hero" class="hero" style="background-image:url('https://images.unsplash.com/photo-1572120360610-d971b9b78830?auto=format&fit=crop&w=1500&q=80');">
+    <div id="real-hero" class="hero">
       <h2>Luxury Homes & Investment Properties in Georgia</h2>
     </div>
     <section>
       <h2>About Our Real Estate Services</h2>
-      <p>Radiant Spark Real Estate LLC helps clients buy, sell, and invest in premier properties. We specialize in personalized guidance, local market insights, and seamless closings.</p>
+      <p>We specialize in helping clients find their dream homes and smart investments. Radiant Spark Real Estate LLC brings trust, strategy, and expertise to every transaction.</p>
     </section>
     <section class="services">
       <h2>Our Real Estate Expertise</h2>
       <ul>
-        <li>Luxury Home Buying & Selling</li>
+        <li>Luxury Property Sales</li>
         <li>Investment Property Consulting</li>
-        <li>Property Valuation & Market Analysis</li>
         <li>Home Staging & Marketing</li>
         <li>Transaction Management</li>
+        <li>Market Analysis Reports</li>
       </ul>
     </section>
   </div>
 
   <!-- ========== FLIP & FIX PAGE ========== -->
   <div id="flip-page" class="page">
-    <div id="flip-hero" class="hero" style="background-image:url('https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1500&q=80');">
+    <div id="flip-hero" class="hero">
       <h2>Transforming Homes, Increasing Value</h2>
     </div>
     <section>
       <h2>About Flip & Fix</h2>
-      <p>Our renovation experts turn distressed properties into dream homes. We manage everything — from design and permits to finishing touches — maximizing both beauty and profit.</p>
+      <p>Our renovation team turns distressed properties into beautiful, profitable homes. From design to sale, we handle every detail with precision.</p>
     </section>
     <section class="services">
       <h2>Flip & Fix Services</h2>
       <ul>
         <li>Property Acquisition</li>
-        <li>Interior & Exterior Renovation</li>
+        <li>Full Home Renovation</li>
         <li>Kitchen & Bathroom Remodeling</li>
-        <li>Real Estate Market Preparation</li>
-        <li>Investment ROI Optimization</li>
+        <li>Exterior Improvements</li>
+        <li>ROI Optimization</li>
       </ul>
     </section>
   </div>
-
 </main>
 
 <footer>&copy; 2025 Radiant Spark LLC. All rights reserved.</footer>
 
-<!-- Chatbox -->
+<!-- ===== Chatbox ===== -->
 <button id="chat-toggle">💬</button>
 <div id="chatbox">
   <div id="chatbox-header">💡 Radiant Spark AI Assistant</div>
@@ -212,12 +229,25 @@ footer {
 </div>
 
 <script>
-/* ===== Page Navigation ===== */
+/* ===== Page Navigation with Hash Support ===== */
 function showPage(pageId) {
-  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-  document.getElementById(pageId).classList.add('active');
+  const pages = document.querySelectorAll('.page');
+  pages.forEach(p => {
+    if (p.id === pageId) p.classList.add('active');
+    else p.classList.remove('active');
+  });
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
+
+function loadPageFromHash() {
+  const hash = window.location.hash;
+  if (hash === '#real-estate') showPage('real-page');
+  else if (hash === '#flip') showPage('flip-page');
+  else showPage('it-page'); // default
+}
+
+window.addEventListener('hashchange', loadPageFromHash);
+window.addEventListener('load', loadPageFromHash);
 
 /* ===== Chatbox ===== */
 const toggle = document.getElementById('chat-toggle');
@@ -226,15 +256,15 @@ const form = document.getElementById('chatbox-form');
 const input = document.getElementById('chatbox-input');
 const messages = document.getElementById('chatbox-messages');
 
-toggle.addEventListener('click',()=>{
+toggle.addEventListener('click', () => {
   chatbox.style.display = chatbox.style.display === 'flex' ? 'none' : 'flex';
   chatbox.style.flexDirection = 'column';
 });
 
-form.addEventListener('submit',e=>{
+form.addEventListener('submit', e => {
   e.preventDefault();
   const msg = input.value.trim();
-  if(!msg) return;
+  if (!msg) return;
   messages.innerHTML += `<p><strong>You:</strong> ${msg}</p>`;
   input.value = '';
   messages.scrollTop = messages.scrollHeight;
@@ -242,6 +272,6 @@ form.addEventListener('submit',e=>{
   messages.scrollTop = messages.scrollHeight;
 });
 </script>
-
 </body>
 </html>
+
