@@ -1,308 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Radiant Spark LLC</title>
-<meta name="description" content="Radiant Spark LLC offers IT services, real estate, and home renovation expertise in Georgia.">
-
-<style>
-/* ===== Base Styles ===== */
-*, *::before, *::after { box-sizing: border-box; }
-body {
-    margin: 0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: #f1f5f9;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-    overflow-x: hidden;
-}
-a { color: #2563eb; text-decoration: none; transition: 0.3s; cursor: pointer; }
-a:hover { color: #1abc9c; text-decoration: underline; }
-
-/* ===== Header ===== */
-header {
-    background: linear-gradient(135deg,#1E3A8A,#3B82F6);
-    color: white;
-    padding: 40px 20px;
-    text-align: center;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-}
-header h1 { margin: 0; font-size: 2.8rem; }
-nav { margin-top: 20px; }
-nav a {
-    margin: 0 15px;
-    font-weight: 600;
-    color: #f8fafc;
-    font-size: 1.1rem;
-}
-nav a:hover { text-decoration: underline; }
-
-/* ===== Main Container ===== */
-main {
-    flex: 1;
-    max-width: 1100px;
-    margin: 40px auto;
-    padding: 0 20px;
-    background: white;
-    border-radius: 12px;
-    box-shadow: 0 12px 30px rgba(0,0,0,0.12);
-    overflow: hidden;
-    position: relative;
-}
-
-/* ===== Hero Sections ===== */
-.hero {
-    height: 300px;
-    background: #1e40af;
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    border-radius: 12px 12px 0 0;
-    background-size: cover;
-    background-position: center;
-    position: relative;
-}
-.hero::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0; bottom: 0;
-    background: rgba(0,0,0,0.4);
-}
-.hero h2 {
-    font-size: 2.8rem;
-    margin: 0;
-    position: relative;
-    z-index: 1;
-}
-#it-hero   { background-image: url('https://images.unsplash.com/photo-1556761175-4b46a572b786?auto=format&fit=crop&w=1500&q=80'); }
-#real-hero { background-image: url('https://images.unsplash.com/photo-1572120360610-d971b9b78830?auto=format&fit=crop&w=1500&q=80'); }
-#flip-hero { background-image: url('https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1500&q=80'); }
-
-/* ===== Content ===== */
-section {
-    padding: 40px;
-    line-height: 1.7;
-}
-section h2 { color: #1e40af; text-align: center; margin-bottom: 20px; }
-.services ul { list-style: none; padding: 0; }
-.services li {
-    background: #f0f7ff;
-    margin: 12px 0;
-    padding: 15px;
-    border-radius: 8px;
-    border-left: 5px solid #3b82f6;
-    font-size: 1.1rem;
-}
-
-/* ===== Footer ===== */
-footer {
-    text-align: center;
-    padding: 20px;
-    background: #1e293b;
-    color: white;
-    font-size: 0.9rem;
-}
-
-/* ===== Page System ===== */
-.page { 
-    position: absolute;
-    top: 0; left: 0; right: 0; bottom: 0;
-    background: white;
-    opacity: 0;
-    transform: scale(0.98);
-    pointer-events: none;
-    transition: opacity 0.7s ease, transform 0.7s ease;
-}
-.page.active {
-    opacity: 1;
-    transform: scale(1);
-    pointer-events: auto;
-    position: relative;
-}
-
-/* ===== Chat Widget (Free ChatGPT) ===== */
-#chat-toggle {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background: #3b82f6;
-    color: white;
-    border: none;
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    font-size: 28px;
-    cursor: pointer;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
-    z-index: 1000;
-}
-#chat-toggle:hover { background: #1abc9c; }
-
-#chatbox {
-    position: fixed;
-    bottom: 90px;
-    right: 20px;
-    width: 380px;
-    max-width: 90vw;
-    height: 520px;
-    background: white;
-    border-radius: 16px;
-    box-shadow: 0 20px 50px rgba(0,0,0,0.25);
-    display: none;
-    flex-direction: column;
-    z-index: 999;
-    border: 2px solid #3b82f6;
-    overflow: hidden;
-}
-#chatbox-header {
-    background: linear-gradient(135deg,#1E3A8A,#3B82F6);
-    color: white;
-    padding: 16px;
-    font-weight: bold;
-    font-size: 1.1rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-#chat-close { cursor: pointer; font-size: 24px; }
-#chatbox-messages {
-    flex: 1;
-    padding: 20px;
-    overflow-y: auto;
-    background: #f8fafc;
-}
-#chatbox-messages p {
-    margin: 12px 0;
-    padding: 12px 16px;
-    border-radius: 18px;
-    max-width: 85%;
-    word-wrap: break-word;
-}
-#chatbox-messages p strong { display: block; margin-bottom: 4px; }
-#chatbox-messages p:nth-child(even) { background: #e0f2fe; align-self: flex-start; }
-#chatbox-messages p:nth-child(odd) { background: #3b82f6; color: white; align-self: flex-end; margin-left: auto; }
-
-#chatbox-form {
-    display: flex;
-    padding: 12px;
-    background: white;
-    border-top: 1px solid #e2e8f0;
-}
-#chatbox-input {
-    flex: 1;
-    padding: 12px 16px;
-    border: 1px solid #cbd5e1;
-    border-radius: 25px;
-    outline: none;
-    font-size: 1rem;
-}
-#chatbox-input:focus { border-color: #3b82f6; }
-#chatbox-send {
-    margin-left: 10px;
-    background: #3b82f6;
-    color: white;
-    border: none;
-    padding: 0 20px;
-    border-radius: 25px;
-    cursor: pointer;
-    font-weight: bold;
-}
-#chatbox-send:hover { background: #1abc9c; }
-</style>
-</head>
-<body>
-
-<header>
-    <h1>Radiant Spark LLC</h1>
-    <p>Technology • Real Estate • Renovation Experts</p>
-    <nav>
-        <a href="#it">IT Services</a>
-        <a href="#real-estate">Real Estate</a>
-        <a href="#flip">Flip & Fix</a>
-    </nav>
-</header>
-
-<main>
-    <!-- IT Services Page -->
-    <div id="it-page" class="page active">
-        <div id="it-hero" class="hero"><h2>Innovative IT Solutions for Modern Businesses</h2></div>
-        <section>
-            <h2>About Our IT Services</h2>
-            <p>We deliver modern IT solutions including cloud integration, web development, and cybersecurity support tailored to your business needs.</p>
-        </section>
-        <section class="services">
-            <h2>Our IT Solutions</h2>
-            <ul>
-                <li>Cloud Infrastructure</li>
-                <li>Custom Web Applications</li>
-                <li>Data Security & Backup</li>
-                <li>AI Automation</li>
-                <li>24/7 IT Support</li>
-            </ul>
-        </section>
-    </div>
-
-    <!-- Real Estate Page -->
-    <div id="real-page" class="page">
-        <div id="real-hero" class="hero"><h2>Luxury Homes & Investment Properties in Georgia</h2></div>
-        <section>
-            <h2>About Our Real Estate Services</h2>
-            <p>We specialize in helping clients find their dream homes and smart investments. Radiant Spark Real Estate LLC brings trust, strategy, and expertise to every transaction.</p>
-        </section>
-        <section class="services">
-            <h2>Our Real Estate Expertise</h2>
-            <ul>
-                <li>Luxury Property Sales</li>
-                <li>Investment Property Consulting</li>
-                <li>Property Valuation & Market Analysis</li>
-                <li>Home Staging & Marketing</li>
-                <li>Transaction Management</li>
-            </ul>
-        </section>
-    </div>
-
-    <!-- Flip & Fix Page -->
-    <div id="flip-page" class="page">
-        <div id="flip-hero" class="hero"><h2>Transforming Homes, Increasing Value</h2></div>
-        <section>
-            <h2>About Flip & Fix</h2>
-            <p>Our renovation team turns distressed properties into beautiful, profitable homes. From design to sale, we handle every detail with precision.</p>
-        </section>
-        <section class="services">
-            <h2>Flip & Fix Services</h2>
-            <ul>
-                <li>Property Acquisition</li>
-                <li>Full Home Renovation</li>
-                <li>Kitchen & Bathroom Remodeling</li>
-                <li>Exterior Improvements</li>
-                <li>ROI Optimization</li>
-            </ul>
-        </section>
-    </div>
-</main>
-
-<footer>© 2025 Radiant Spark LLC. All rights reserved.</footer>
-
-<!-- ========== FREE CHATGPT CHAT WIDGET ========== -->
-<button id="chat-toggle">Chat</button>
-<div id="chatbox">
-    <div id="chatbox-header">
-        Radiant Spark AI Assistant
-        <span id="chat-close">×</span>
-    </div>
-    <div id="chatbox-messages">
-        <p><strong>AI:</strong> Hello! I'm your Radiant Spark AI assistant. How can I help you today?</p>
-    </div>
-    <form id="chatbox-form">
-        <input type="text" id="chatbox-input" placeholder="Type your message..." autocomplete="off" required />
-        <button type="submit" id="chatbox-send">Send</button>
-    </form>
-</div>
-
 <script>
 // ===== Page Navigation with Hash Support =====
 function showPage(pageId) {
@@ -319,7 +14,7 @@ function loadPageFromHash() {
 window.addEventListener('hashchange', loadPageFromHash);
 window.addEventListener('load', loadPageFromHash);
 
-// ===== REAL Free ChatGPT Integration (Updated Proxy) =====
+// ===== REAL Free ChatGPT Integration (Updated Proxy + FIXED) =====
 const toggle = document.getElementById('chat-toggle');
 const chatbox = document.getElementById('chatbox');
 const closeBtn = document.getElementById('chat-close');
@@ -328,7 +23,11 @@ const input = document.getElementById('chatbox-input');
 const messages = document.getElementById('chatbox-messages');
 
 toggle.addEventListener('click', () => {
-    chatbox.style.display = (chatbox.style.display === 'flex') ? 'none' : 'flex';
+    if (chatbox.style.display === 'none' || chatbox.style.display === '') {
+        chatbox.style.display = 'flex';
+    } else {
+        chatbox.style.display = 'none';
+    }
 });
 closeBtn.addEventListener('click', () => chatbox.style.display = 'none');
 
@@ -347,16 +46,16 @@ form.addEventListener('submit', async (e) => {
     messages.scrollTop = messages.scrollHeight;
 
     try {
-        const response = await fetch('https://api.pawan.krd/v1/chat/completions', {  // Updated to stable free proxy
-            method: 'POST',
+        const response = await fetch("https://api.pawan.krd/openai/v1/chat/completions", {
+            method: "POST",
             headers: {
-                'Content-Type': 'application/json',
-                'Authorization': 'Bearer free'  // Works with this proxy
+                "Content-Type": "application/json",
+                "Authorization": "Bearer free"
             },
             body: JSON.stringify({
                 model: "gpt-3.5-turbo",
                 messages: [
-                    { role: "system", content: "You are a friendly and professional AI assistant for Radiant Spark LLC — a company in Georgia offering IT services, real estate, and home renovation/flipping. Be helpful, concise, and encourage visitors to contact the company." },
+                    { role: "system", content: "You are a friendly and helpful AI assistant for Radiant Spark LLC." },
                     { role: "user", content: userMessage }
                 ],
                 temperature: 0.7,
@@ -367,16 +66,23 @@ form.addEventListener('submit', async (e) => {
         const data = await response.json();
         typing.remove();
 
-        const aiReply = data.choices?.[0]?.message?.content || "Sorry, I couldn't respond right now. Please try again later.";
+        // SAFELY HANDLE ERRORS
+        let aiReply = "Sorry, I couldn't respond right now. Please try again later.";
+
+        if (data?.choices && data.choices.length > 0) {
+            aiReply = data.choices[0].message.content;
+        } else if (data?.error?.message) {
+            aiReply = "AI Error: " + data.error.message;
+        }
+
         messages.innerHTML += `<p><strong>AI:</strong> ${aiReply}</p>`;
     } catch (err) {
         typing.remove();
-        messages.innerHTML += `<p><strong>AI:</strong> Connection issue. Please check your internet and try again.</p>`;
-        console.error('Chat Error:', err);  // Logs details to console for debugging
+        messages.innerHTML += `<p><strong>AI:</strong> Connection issue. Please try again.</p>`;
+        console.error("Chat Error:", err);
     }
+
     messages.scrollTop = messages.scrollHeight;
 });
 </script>
 
-</body>
-</html>
