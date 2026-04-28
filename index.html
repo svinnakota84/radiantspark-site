@@ -3,14 +3,15 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Radiant Spark | Global Solutions</title>
+<title>Radiant Spark Global | Premium Solutions</title>
 <style>
   :root {
-    --primary: #2563eb;
+    --primary: #3b82f6;
     --accent: #1abc9c;
     --solar: #f59e0b;
     --dark-bg: #020617;
-    --card-bg: rgba(30, 41, 59, 0.7);
+    --card-bg: rgba(30, 41, 59, 0.8);
+    --glass: rgba(255, 255, 255, 0.03);
   }
 
   body { 
@@ -19,13 +20,15 @@
     background: var(--dark-bg); 
     color: #cbd5e1;
     line-height: 1.6;
+    overflow-x: hidden;
   }
 
+  /* Header Navigation */
   header { 
-    background: rgba(15, 23, 42, 0.9);
-    backdrop-filter: blur(12px);
+    background: rgba(15, 23, 42, 0.95);
+    backdrop-filter: blur(15px);
     border-bottom: 1px solid rgba(255,255,255,0.1);
-    padding: 20px; 
+    padding: 25px; 
     text-align: center; 
     position: sticky;
     top: 0;
@@ -34,10 +37,11 @@
 
   header h1 { 
     margin: 0; 
-    background: linear-gradient(90deg, #3b82f6, #1abc9c);
+    background: linear-gradient(90deg, #3b82f6, #f59e0b, #1abc9c);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    font-size: 1.8rem;
+    font-size: 2rem;
+    font-weight: 800;
   }
   
   nav { margin-top: 15px; }
@@ -46,11 +50,12 @@
     color: #94a3b8; 
     text-transform: uppercase;
     text-decoration: none;
-    font-size: 0.85rem;
-    letter-spacing: 1px;
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+    font-weight: 600;
     transition: 0.3s;
   }
-  nav a:hover { color: #3b82f6; }
+  nav a:hover { color: #f59e0b; }
 
   main { 
     max-width: 1200px; 
@@ -58,65 +63,100 @@
     padding: 0 20px; 
   }
 
+  /* Hero Section */
   .hero { 
-    height: 400px; 
+    height: 500px; 
     display: flex; 
+    flex-direction: column;
     align-items: center; 
     justify-content: center; 
     text-align: center; 
-    border-radius: 24px; 
+    border-radius: 30px; 
     background-size: cover; 
     background-position: center; 
     position: relative; 
     overflow: hidden;
-    margin-bottom: 40px;
+    margin-bottom: 50px;
+    border: 1px solid rgba(255,255,255,0.1);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.5);
   }
 
   .hero::before { 
     content: ''; 
     position: absolute; 
     inset: 0; 
-    background: rgba(0,0,0,0.5); 
+    background: linear-gradient(to bottom, rgba(2,6,23,0.2), rgba(2,6,23,0.85)); 
   }
 
   .hero h2 { 
     position: relative; 
     z-index: 1; 
-    font-size: 3rem; 
+    font-size: 3.5rem; 
     color: white; 
-    text-shadow: 0 4px 10px rgba(0,0,0,0.5);
+    line-height: 1.1;
+    max-width: 800px;
   }
 
+  /* Grid and Cards */
   .services-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 25px;
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    gap: 30px;
   }
 
   .service-card {
     background: var(--card-bg);
-    border-radius: 20px;
+    border-radius: 25px;
     overflow: hidden;
-    border: 1px solid rgba(255,255,255,0.05);
-    transition: 0.3s;
+    border: 1px solid rgba(255,255,255,0.1);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   }
 
-  .service-card:hover { transform: translateY(-5px); border-color: var(--primary); }
+  .service-card:hover { 
+    transform: translateY(-15px); 
+    border-color: var(--solar);
+    box-shadow: 0 15px 30px rgba(245, 158, 11, 0.2);
+  }
 
   .card-img {
-    height: 200px;
+    height: 220px;
     background-size: cover;
     background-position: center;
   }
 
-  .card-content { padding: 25px; }
-  .card-content h3 { margin-top: 0; color: #3b82f6; }
+  .card-content { padding: 30px; }
+  .card-content h3 { margin-top: 0; color: #3b82f6; font-size: 1.5rem; }
   .india-card h3 { color: #f59e0b; }
 
-  .page { display: none; }
+  /* Page Control */
+  .page { display: none; animation: fadeIn 0.8s ease forwards; }
   .page.active { display: block; }
+  @keyframes fadeIn { from { opacity: 0; transform: scale(0.98); } to { opacity: 1; transform: scale(1); } }
 
-  footer { text-align: center; padding: 40px; border-top: 1px solid rgba(255,255,255,0.1); }
+  /* New Chatbot UI */
+  #chat-toggle {
+    position: fixed; bottom: 30px; right: 30px; 
+    background: linear-gradient(135deg, #f59e0b, #3b82f6); 
+    color: white; border: none; width: 65px; height: 65px; border-radius: 22px; 
+    font-size: 30px; cursor: pointer; box-shadow: 0 10px 30px rgba(59, 130, 246, 0.4); 
+    z-index: 1000; transition: 0.3s;
+  }
+  #chat-toggle:hover { transform: rotate(15deg) scale(1.1); }
+
+  #chatbox {
+    position: fixed; bottom: 110px; right: 30px; width: 380px; height: 500px;
+    background: #1e293b; border-radius: 25px; box-shadow: 0 25px 50px rgba(0,0,0,0.6);
+    display: none; flex-direction: column; z-index: 999; border: 1px solid rgba(255,255,255,0.1); overflow: hidden;
+  }
+
+  #chat-header { background: #0f172a; color: white; padding: 20px; font-weight: bold; border-bottom: 1px solid rgba(255,255,255,0.1); }
+  #chat-messages { flex: 1; padding: 20px; overflow-y: auto; display: flex; flex-direction: column; gap: 10px; }
+  .msg { padding: 12px 18px; border-radius: 18px; font-size: 0.9rem; max-width: 80%; }
+  .ai { background: #334155; align-self: flex-start; }
+  .user { background: var(--primary); align-self: flex-end; }
+
+  #chat-form { padding: 15px; display: flex; gap: 10px; background: #0f172a; }
+  #chat-input { flex: 1; background: #1e293b; border: 1px solid #334155; color: white; padding: 12px; border-radius: 12px; outline: none; }
 </style>
 </head>
 <body>
@@ -124,59 +164,58 @@
 <header>
   <h1>Radiant Spark Global</h1>
   <nav>
-    <a href="#it">Technology (US)</a>
-    <a href="#india">Radiant Sparkle Industries (India)</a>
+    <a href="#it">USA: Technology</a>
+    <a href="#india">INDIA: Radiant Sparkle Industries</a>
   </nav>
 </header>
 
 <main>
   <div id="it-page" class="page active">
-    <div class="hero" style="background-image: url('http://googleusercontent.com/image_collection/image_retrieval/4007786162790511327_0')">
-      <h2>Next-Gen IT Infrastructure</h2>
+    <div class="hero" style="background-image: url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072&auto=format&fit=crop')">
+      <h2>Intelligent <br><span style="color:var(--primary)">Cloud Architecture</span></h2>
     </div>
     <div class="services-grid">
       <div class="service-card">
+        <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1558494949-ef010cbdcc51?q=80&w=2000&auto=format&fit=crop')"></div>
         <div class="card-content">
-          <h3>Cloud Systems</h3>
-          <p>Enterprise-grade migration and serverless architecture for growing businesses.</p>
+          <h3>IT Infrastructure</h3>
+          <p>Global Fusion HCM consulting and robust cloud migration services for US enterprises.</p>
         </div>
       </div>
       <div class="service-card">
+        <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=2000&auto=format&fit=crop')"></div>
         <div class="card-content">
-          <h3>AI Integration</h3>
-          <p>Implementing LLMs and automated workflows to optimize operational costs.</p>
+          <h3>AI Automation</h3>
+          <p>Custom LLM workflows and AI server infrastructure optimized for performance.</p>
         </div>
       </div>
     </div>
   </div>
 
   <div id="india-page" class="page">
-    <div class="hero" style="background-image: url('http://googleusercontent.com/image_collection/image_retrieval/13558723884015507755_0')">
-      <h2>Radiant Sparkle Industries</h2>
+    <div class="hero" style="background-image: url('https://images.unsplash.com/photo-1509391366360-fe5bb62935b2?q=80&w=2000&auto=format&fit=crop')">
+      <h2>Radiant Sparkle <br><span style="color:var(--solar)">Industries Pvt Ltd</span></h2>
     </div>
-    
     <div class="services-grid">
       <div class="service-card india-card">
-        <div class="card-img" style="background-image: url('http://googleusercontent.com/image_collection/image_retrieval/13558723884015507755_0')"></div>
+        <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1593941707882-a5bba14938c7?q=80&w=2000&auto=format&fit=crop')"></div>
         <div class="card-content">
-          <h3>EV & Solar</h3>
-          <p>Sustainable energy grids and EV charging networks powering Andhra Pradesh.</p>
+          <h3>Solar & EV Charging</h3>
+          <p>Clean energy solutions and advanced EV charging stations throughout Guntur.</p>
         </div>
       </div>
-      
       <div class="service-card india-card">
-        <div class="card-img" style="background-image: url('http://googleusercontent.com/image_collection/image_retrieval/3341978799365124374_0')"></div>
+        <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1556767515-59a35146d523?q=80&w=2000&auto=format&fit=crop')"></div>
         <div class="card-content">
-          <h3>Food & Beverages</h3>
-          <p>Home of 'Sparkle' brand drinks. Specialized distribution for premium refreshments.</p>
+          <h3>Sparkle Beverages</h3>
+          <p>Refreshing, premium drinks distribution and manufacturing for the Indian market.</p>
         </div>
       </div>
-      
       <div class="service-card india-card">
-        <div class="card-img" style="background-image: url('http://googleusercontent.com/image_collection/image_retrieval/257972948158959678_0')"></div>
+        <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=2000&auto=format&fit=crop')"></div>
         <div class="card-content">
-          <h3>Logistics</h3>
-          <p>Official Xpressbees partner. Modern fleet management and last-mile delivery.</p>
+          <h3>Logistics & Distribution</h3>
+          <p>Fleet management and delivery partnership with industry leaders like Xpressbees.</p>
         </div>
       </div>
     </div>
@@ -184,10 +223,23 @@
 </main>
 
 <footer>
-  <p>© 2026 Radiant Spark Group. Global Operations.</p>
+  <p>© 2026 Radiant Spark Group | US & India Divisions</p>
 </footer>
 
+<button id="chat-toggle">💬</button>
+<div id="chatbox">
+  <div id="chat-header">Radiant Intelligence</div>
+  <div id="chat-messages">
+    <div class="msg ai">Hello! I am your Radiant Spark assistant. How can I help with our India or US services today?</div>
+  </div>
+  <form id="chat-form">
+    <input type="text" id="chat-input" placeholder="Type a message..." autocomplete="off">
+    <button type="submit" style="background:none; border:none; color:var(--primary); font-weight:bold; cursor:pointer">SEND</button>
+  </form>
+</div>
+
 <script>
+// Page Switching
 function updatePage() {
   const hash = window.location.hash || '#it';
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
@@ -197,6 +249,35 @@ function updatePage() {
 }
 window.addEventListener('hashchange', updatePage);
 window.addEventListener('load', updatePage);
+
+// Chatbot Logic
+const chatToggle = document.getElementById('chat-toggle');
+const chatbox = document.getElementById('chatbox');
+const chatForm = document.getElementById('chat-form');
+const chatInput = document.getElementById('chat-input');
+const chatMessages = document.getElementById('chat-messages');
+
+chatToggle.onclick = () => chatbox.style.display = (chatbox.style.display === 'flex') ? 'none' : 'flex';
+
+chatForm.onsubmit = (e) => {
+  e.preventDefault();
+  const input = chatInput.value.trim();
+  if(!input) return;
+
+  // Add User Message
+  chatMessages.innerHTML += `<div class="msg user">${input}</div>`;
+  chatInput.value = '';
+
+  // Simple Simulated AI Response
+  setTimeout(() => {
+    let reply = "That sounds interesting! Please leave your email, and a consultant from Radiant Spark will contact you regarding that.";
+    if(input.toLowerCase().includes("ev")) reply = "Our EV charging stations in Guntur are solar-powered. Would you like to know more about the locations?";
+    if(input.toLowerCase().includes("drink")) reply = "Sparkle Beverages offers premium, natural drinks. We are currently expanding distribution in Andhra Pradesh.";
+    
+    chatMessages.innerHTML += `<div class="msg ai">${reply}</div>`;
+    chatMessages.scrollTop = chatMessages.scrollHeight;
+  }, 800);
+};
 </script>
 
 </body>
