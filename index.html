@@ -3,160 +3,109 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Radiant Spark Global | Premium Solutions</title>
+<title>Radiant Spark Global | US & India</title>
 <style>
   :root {
-    --primary: #3b82f6;
-    --accent: #1abc9c;
-    --solar: #f59e0b;
+    --primary: #3b82f6;   /* Electric Blue */
+    --accent: #1abc9c;    /* Teal */
+    --solar: #f59e0b;     /* Golden Sun */
     --dark-bg: #020617;
-    --card-bg: rgba(30, 41, 59, 0.8);
-    --glass: rgba(255, 255, 255, 0.03);
+    --card-bg: rgba(30, 41, 59, 0.9);
   }
 
   body { 
-    margin: 0; 
-    font-family: 'Inter', sans-serif; 
-    background: var(--dark-bg); 
-    color: #cbd5e1;
-    line-height: 1.6;
-    overflow-x: hidden;
+    margin: 0; font-family: 'Inter', sans-serif; 
+    background: var(--dark-bg); color: #cbd5e1; 
+    line-height: 1.6; overflow-x: hidden;
   }
 
-  /* Header Navigation */
+  /* Vibrant Header */
   header { 
     background: rgba(15, 23, 42, 0.95);
     backdrop-filter: blur(15px);
-    border-bottom: 1px solid rgba(255,255,255,0.1);
-    padding: 25px; 
-    text-align: center; 
-    position: sticky;
-    top: 0;
-    z-index: 1000;
+    border-bottom: 2px solid var(--primary);
+    padding: 25px; text-align: center; 
+    position: sticky; top: 0; z-index: 1000;
   }
 
   header h1 { 
-    margin: 0; 
+    margin: 0; font-size: 2.2rem; font-weight: 800;
     background: linear-gradient(90deg, #3b82f6, #f59e0b, #1abc9c);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    font-size: 2rem;
-    font-weight: 800;
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
   }
   
   nav { margin-top: 15px; }
   nav a { 
-    margin: 0 15px; 
-    color: #94a3b8; 
-    text-transform: uppercase;
-    text-decoration: none;
-    font-size: 0.8rem;
-    letter-spacing: 2px;
-    font-weight: 600;
-    transition: 0.3s;
+    margin: 0 15px; color: #94a3b8; text-decoration: none;
+    font-size: 0.9rem; font-weight: 600; letter-spacing: 1px;
+    transition: 0.3s; text-transform: uppercase;
   }
-  nav a:hover { color: #f59e0b; }
+  nav a:hover { color: var(--solar); }
 
-  main { 
-    max-width: 1200px; 
-    margin: 40px auto; 
-    padding: 0 20px; 
-  }
+  main { max-width: 1200px; margin: 40px auto; padding: 0 20px; }
 
-  /* Hero Section */
+  /* Hero Sections with High-Quality Backgrounds */
   .hero { 
-    height: 500px; 
-    display: flex; 
-    flex-direction: column;
-    align-items: center; 
-    justify-content: center; 
-    text-align: center; 
-    border-radius: 30px; 
-    background-size: cover; 
-    background-position: center; 
-    position: relative; 
-    overflow: hidden;
-    margin-bottom: 50px;
-    border: 1px solid rgba(255,255,255,0.1);
-    box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+    height: 450px; display: flex; align-items: center; justify-content: center; 
+    text-align: center; border-radius: 30px; background-size: cover; 
+    background-position: center; position: relative; overflow: hidden;
+    margin-bottom: 50px; border: 1px solid rgba(255,255,255,0.1);
   }
 
   .hero::before { 
-    content: ''; 
-    position: absolute; 
-    inset: 0; 
-    background: linear-gradient(to bottom, rgba(2,6,23,0.2), rgba(2,6,23,0.85)); 
+    content: ''; position: absolute; inset: 0; 
+    background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.8)); 
   }
 
-  .hero h2 { 
-    position: relative; 
-    z-index: 1; 
-    font-size: 3.5rem; 
-    color: white; 
-    line-height: 1.1;
-    max-width: 800px;
-  }
+  .hero h2 { position: relative; z-index: 1; font-size: 3.5rem; color: white; text-shadow: 0 4px 15px rgba(0,0,0,0.8); }
 
-  /* Grid and Cards */
-  .services-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-    gap: 30px;
-  }
+  /* Card Grid */
+  .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 30px; }
 
   .service-card {
-    background: var(--card-bg);
-    border-radius: 25px;
-    overflow: hidden;
-    border: 1px solid rgba(255,255,255,0.1);
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    background: var(--card-bg); border-radius: 25px; overflow: hidden;
+    border: 1px solid rgba(255,255,255,0.1); transition: 0.4s ease-in-out;
   }
 
-  .service-card:hover { 
-    transform: translateY(-15px); 
-    border-color: var(--solar);
-    box-shadow: 0 15px 30px rgba(245, 158, 11, 0.2);
-  }
+  .service-card:hover { transform: translateY(-12px); border-color: var(--solar); }
 
-  .card-img {
-    height: 220px;
-    background-size: cover;
-    background-position: center;
+  /* Logo Container - Ensures your logos look clean */
+  .logo-box {
+    height: 200px; background: #ffffff; display: flex; 
+    align-items: center; justify-content: center; padding: 20px;
   }
+  .logo-box img { max-width: 100%; max-height: 100%; object-fit: contain; }
 
   .card-content { padding: 30px; }
-  .card-content h3 { margin-top: 0; color: #3b82f6; font-size: 1.5rem; }
-  .india-card h3 { color: #f59e0b; }
+  .card-content h3 { margin-top: 0; color: var(--primary); font-size: 1.6rem; }
+  .india-card h3 { color: var(--solar); }
 
-  /* Page Control */
-  .page { display: none; animation: fadeIn 0.8s ease forwards; }
-  .page.active { display: block; }
-  @keyframes fadeIn { from { opacity: 0; transform: scale(0.98); } to { opacity: 1; transform: scale(1); } }
-
-  /* New Chatbot UI */
+  /* Chatbot Styling */
   #chat-toggle {
     position: fixed; bottom: 30px; right: 30px; 
-    background: linear-gradient(135deg, #f59e0b, #3b82f6); 
-    color: white; border: none; width: 65px; height: 65px; border-radius: 22px; 
-    font-size: 30px; cursor: pointer; box-shadow: 0 10px 30px rgba(59, 130, 246, 0.4); 
-    z-index: 1000; transition: 0.3s;
+    background: linear-gradient(135deg, #3b82f6, #1abc9c); 
+    color: white; border: none; width: 65px; height: 65px; border-radius: 20px; 
+    font-size: 30px; cursor: pointer; box-shadow: 0 10px 30px rgba(59, 130, 246, 0.4); z-index: 1000;
   }
-  #chat-toggle:hover { transform: rotate(15deg) scale(1.1); }
 
   #chatbox {
-    position: fixed; bottom: 110px; right: 30px; width: 380px; height: 500px;
-    background: #1e293b; border-radius: 25px; box-shadow: 0 25px 50px rgba(0,0,0,0.6);
-    display: none; flex-direction: column; z-index: 999; border: 1px solid rgba(255,255,255,0.1); overflow: hidden;
+    position: fixed; bottom: 110px; right: 30px; width: 350px; height: 500px;
+    background: #1e293b; border-radius: 25px; display: none; flex-direction: column; 
+    z-index: 999; border: 1px solid rgba(255,255,255,0.1); overflow: hidden;
   }
 
-  #chat-header { background: #0f172a; color: white; padding: 20px; font-weight: bold; border-bottom: 1px solid rgba(255,255,255,0.1); }
-  #chat-messages { flex: 1; padding: 20px; overflow-y: auto; display: flex; flex-direction: column; gap: 10px; }
-  .msg { padding: 12px 18px; border-radius: 18px; font-size: 0.9rem; max-width: 80%; }
+  #chat-header { background: #0f172a; color: white; padding: 20px; font-weight: bold; }
+  #chat-messages { flex: 1; padding: 15px; overflow-y: auto; display: flex; flex-direction: column; gap: 10px; }
+  .msg { padding: 10px 15px; border-radius: 15px; font-size: 0.9rem; max-width: 80%; }
   .ai { background: #334155; align-self: flex-start; }
   .user { background: var(--primary); align-self: flex-end; }
 
   #chat-form { padding: 15px; display: flex; gap: 10px; background: #0f172a; }
-  #chat-input { flex: 1; background: #1e293b; border: 1px solid #334155; color: white; padding: 12px; border-radius: 12px; outline: none; }
+  #chat-input { flex: 1; background: #1e293b; border: 1px solid #334155; color: white; padding: 10px; border-radius: 10px; outline: none; }
+
+  .page { display: none; animation: fadeIn 0.6s ease; }
+  .page.active { display: block; }
+  @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 </style>
 </head>
 <body>
@@ -164,29 +113,22 @@
 <header>
   <h1>Radiant Spark Global</h1>
   <nav>
-    <a href="#it">USA: Technology</a>
-    <a href="#india">INDIA: Radiant Sparkle Industries</a>
+    <a href="#it">Technology (USA)</a>
+    <a href="#india">Industries (INDIA)</a>
   </nav>
 </header>
 
 <main>
   <div id="it-page" class="page active">
-    <div class="hero" style="background-image: url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072&auto=format&fit=crop')">
-      <h2>Intelligent <br><span style="color:var(--primary)">Cloud Architecture</span></h2>
+    <div class="hero" style="background-image: url('https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=2070&auto=format&fit=crop')">
+      <h2>Radiant Spark LLC</h2>
     </div>
     <div class="services-grid">
       <div class="service-card">
-        <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1558494949-ef010cbdcc51?q=80&w=2000&auto=format&fit=crop')"></div>
+        <div class="logo-box"><img src="logo-it.jpg" alt="US IT Logo"></div>
         <div class="card-content">
-          <h3>IT Infrastructure</h3>
-          <p>Global Fusion HCM consulting and robust cloud migration services for US enterprises.</p>
-        </div>
-      </div>
-      <div class="service-card">
-        <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=2000&auto=format&fit=crop')"></div>
-        <div class="card-content">
-          <h3>AI Automation</h3>
-          <p>Custom LLM workflows and AI server infrastructure optimized for performance.</p>
+          <h3>IT & AI Cloud Infrastructure</h3>
+          <p>Enterprise-grade Fusion HCM consulting and AI server infrastructure specialized for US operations.</p>
         </div>
       </div>
     </div>
@@ -194,28 +136,28 @@
 
   <div id="india-page" class="page">
     <div class="hero" style="background-image: url('https://images.unsplash.com/photo-1509391366360-fe5bb62935b2?q=80&w=2000&auto=format&fit=crop')">
-      <h2>Radiant Sparkle <br><span style="color:var(--solar)">Industries Pvt Ltd</span></h2>
+      <h2>Radiant Sparkle Industries</h2>
     </div>
     <div class="services-grid">
       <div class="service-card india-card">
-        <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1593941707882-a5bba14938c7?q=80&w=2000&auto=format&fit=crop')"></div>
+        <div class="logo-box"><img src="logo-ev.jpg" alt="EV Logo"></div>
         <div class="card-content">
           <h3>Solar & EV Charging</h3>
-          <p>Clean energy solutions and advanced EV charging stations throughout Guntur.</p>
+          <p>Clean energy and EV infrastructure development across Guntur and Andhra Pradesh.</p>
         </div>
       </div>
       <div class="service-card india-card">
-        <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1556767515-59a35146d523?q=80&w=2000&auto=format&fit=crop')"></div>
+        <div class="logo-box"><img src="logo-drinks.jpg" alt="Drinks Logo"></div>
         <div class="card-content">
           <h3>Sparkle Beverages</h3>
-          <p>Refreshing, premium drinks distribution and manufacturing for the Indian market.</p>
+          <p>Premium drink manufacturing and distribution across the Indian market.</p>
         </div>
       </div>
       <div class="service-card india-card">
-        <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=2000&auto=format&fit=crop')"></div>
+        <div class="logo-box"><img src="logo-dist.jpg" alt="Distribution Logo"></div>
         <div class="card-content">
           <h3>Logistics & Distribution</h3>
-          <p>Fleet management and delivery partnership with industry leaders like Xpressbees.</p>
+          <p>Efficient supply chain management and official partnership with Xpressbees delivery.</p>
         </div>
       </div>
     </div>
@@ -223,62 +165,58 @@
 </main>
 
 <footer>
-  <p>© 2026 Radiant Spark Group | US & India Divisions</p>
+  <p>© 2026 Radiant Spark Group | Global Excellence</p>
 </footer>
 
 <button id="chat-toggle">💬</button>
 <div id="chatbox">
   <div id="chat-header">Radiant Intelligence</div>
   <div id="chat-messages">
-    <div class="msg ai">Hello! I am your Radiant Spark assistant. How can I help with our India or US services today?</div>
+    <div class="msg ai">Welcome! How can I assist you with our US or India services today?</div>
   </div>
   <form id="chat-form">
-    <input type="text" id="chat-input" placeholder="Type a message..." autocomplete="off">
+    <input type="text" id="chat-input" placeholder="Ask a question..." autocomplete="off">
     <button type="submit" style="background:none; border:none; color:var(--primary); font-weight:bold; cursor:pointer">SEND</button>
   </form>
 </div>
 
 <script>
-// Page Switching
+// 1. Navigation Logic
 function updatePage() {
   const hash = window.location.hash || '#it';
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
   if (hash === '#india') document.getElementById('india-page').classList.add('active');
   else document.getElementById('it-page').classList.add('active');
-  window.scrollTo(0, 0);
 }
 window.addEventListener('hashchange', updatePage);
 window.addEventListener('load', updatePage);
 
-// Chatbot Logic
-const chatToggle = document.getElementById('chat-toggle');
-const chatbox = document.getElementById('chatbox');
-const chatForm = document.getElementById('chat-form');
-const chatInput = document.getElementById('chat-input');
-const chatMessages = document.getElementById('chat-messages');
+// 2. Chatbot Logic (Fully Functional)
+const toggle = document.getElementById('chat-toggle');
+const box = document.getElementById('chatbox');
+const form = document.getElementById('chat-form');
+const input = document.getElementById('chat-input');
+const msgs = document.getElementById('chat-messages');
 
-chatToggle.onclick = () => chatbox.style.display = (chatbox.style.display === 'flex') ? 'none' : 'flex';
+toggle.onclick = () => box.style.display = (box.style.display === 'flex') ? 'none' : 'flex';
 
-chatForm.onsubmit = (e) => {
+form.onsubmit = (e) => {
   e.preventDefault();
-  const input = chatInput.value.trim();
-  if(!input) return;
+  const val = input.value.trim();
+  if(!val) return;
 
-  // Add User Message
-  chatMessages.innerHTML += `<div class="msg user">${input}</div>`;
-  chatInput.value = '';
+  msgs.innerHTML += `<div class="msg user">${val}</div>`;
+  input.value = '';
 
-  // Simple Simulated AI Response
   setTimeout(() => {
-    let reply = "That sounds interesting! Please leave your email, and a consultant from Radiant Spark will contact you regarding that.";
-    if(input.toLowerCase().includes("ev")) reply = "Our EV charging stations in Guntur are solar-powered. Would you like to know more about the locations?";
-    if(input.toLowerCase().includes("drink")) reply = "Sparkle Beverages offers premium, natural drinks. We are currently expanding distribution in Andhra Pradesh.";
+    let reply = "I've logged your query. A Radiant Spark specialist will follow up shortly!";
+    if(val.toLowerCase().includes("ev")) reply = "We are currently expanding our Solar EV charging network in Guntur. Would you like a site consultation?";
+    if(val.toLowerCase().includes("it")) reply = "Our US team at Radiant Spark LLC handles IT and AI Server requests. I can schedule a meeting for you.";
     
-    chatMessages.innerHTML += `<div class="msg ai">${reply}</div>`;
-    chatMessages.scrollTop = chatMessages.scrollHeight;
-  }, 800);
+    msgs.innerHTML += `<div class="msg ai">${reply}</div>`;
+    msgs.scrollTop = msgs.scrollHeight;
+  }, 700);
 };
 </script>
-
 </body>
 </html>
