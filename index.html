@@ -26,6 +26,22 @@
     border-bottom: 2px solid var(--primary);
     padding: 25px; text-align: center; 
     position: sticky; top: 0; z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+  }
+
+  .logo-container {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .site-logo {
+    height: 55px;
+    width: auto;
+    object-fit: contain;
   }
 
   header h1 { 
@@ -34,7 +50,7 @@
     -webkit-background-clip: text; -webkit-text-fill-color: transparent;
   }
   
-  nav { margin-top: 15px; }
+  nav { margin-top: 5px; }
   nav a { 
     margin: 0 15px; color: #94a3b8; text-decoration: none;
     font-size: 0.85rem; font-weight: 600; letter-spacing: 1px;
@@ -123,7 +139,10 @@
 <body>
 
 <header>
-  <h1>Radiant Spark Global</h1>
+  <div class="logo-container">
+    <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 500 500' width='100%' height='100%'><defs><linearGradient id='grad1' x1='0%' y1='0%' x2='100%' y2='100%'><stop offset='0%' style='stop-color:%233b82f6;stop-opacity:1' /><stop offset='100%' style='stop-color:%231d4ed8;stop-opacity:1' /></linearGradient><linearGradient id='grad2' x1='0%' y1='0%' x2='100%' y2='100%'><stop offset='0%' style='stop-color:%23f59e0b;stop-opacity:1' /><stop offset='100%' style='stop-color:%23d97706;stop-opacity:1' /></linearGradient></defs><rect width='500' height='500' fill='%23ffffff'/><g><path d='M180,180 L230,180 L290,260 L240,320 Z' fill='url(%23grad2)'/><path d='M180,180 L290,180 C340,180 370,210 350,260 C330,300 290,320 250,320 L210,320 L240,260 L280,260 L250,210 L180,210 Z' fill='url(%23grad1)'/><path d='M160,320 C190,360 260,370 310,330 L310,360 C260,400 180,390 140,340 Z' fill='%2322c55e'/><path d='M350,200 L410,140 L380,120 L330,170 Z' fill='%2394a3b8'/></g></svg>" class="site-logo" alt="Radiant Spark Logo" />
+    <h1>Radiant Spark Global</h1>
+  </div>
   <nav>
     <a href="#it">Technology (USA)</a>
     <a href="#india">Industries (INDIA)</a>
@@ -138,7 +157,9 @@
     </div>
     <div class="services-grid">
       <div class="service-card">
-        <div class="logo-box"><img src="logo-it.jpg" alt="US IT Logo"></div>
+        <div class="logo-box">
+          <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23f8fafc'/><circle cx='50' cy='50' r='30' fill='none' stroke='%233b82f6' stroke-width='4'/><circle cx='50' cy='50' r='15' fill='%231d4ed8'/><path d='M30,50 L70,50' stroke='%233b82f6' stroke-width='4'/></svg>" alt="US IT Logo">
+        </div>
         <div class="card-content">
           <h3>IT & AI Cloud Infrastructure</h3>
           <p>Enterprise-grade Fusion HCM consulting and AI server infrastructure specialized for US operations.</p>
@@ -153,21 +174,27 @@
     </div>
     <div class="services-grid">
       <div class="service-card india-card">
-        <div class="logo-box"><img src="logo-ev.jpg" alt="EV Logo"></div>
+        <div class="logo-box">
+          <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23f8fafc'/><circle cx='50' cy='50' r='35' fill='none' stroke='%23f59e0b' stroke-width='6'/><path d='M50,25 L50,55 L70,55' fill='none' stroke='%23d97706' stroke-width='6'/></svg>" alt="EV Logo">
+        </div>
         <div class="card-content">
           <h3>Solar & EV Charging</h3>
           <p>Clean energy and EV infrastructure development across Guntur and Andhra Pradesh.</p>
         </div>
       </div>
       <div class="service-card india-card">
-        <div class="logo-box"><img src="logo-drinks.jpg" alt="Drinks Logo"></div>
+        <div class="logo-box">
+          <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23f8fafc'/><path d='M35,25 L65,25 L60,85 L40,85 Z' fill='%23f43f5e'/><circle cx='50' cy='25' r='10' fill='%23fb7185'/></svg>" alt="Drinks Logo">
+        </div>
         <div class="card-content">
           <h3>Sparkle Beverages</h3>
           <p>Premium drink manufacturing and distribution across the Indian market.</p>
         </div>
       </div>
       <div class="service-card india-card">
-        <div class="logo-box"><img src="logo-dist.jpg" alt="Distribution Logo"></div>
+        <div class="logo-box">
+          <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23f8fafc'/><rect x='25' y='35' width='50' height='30' rx='5' fill='%2310b981'/><circle cx='35' cy='70' r='8' fill='%231e293b'/><circle cx='65' cy='70' r='8' fill='%231e293b'/></svg>" alt="Distribution Logo">
+        </div>
         <div class="card-content">
           <h3>Logistics & Distribution</h3>
           <p>Efficient supply chain management and official partnership with Xpressbees delivery.</p>
