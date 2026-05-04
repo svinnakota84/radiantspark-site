@@ -6,22 +6,22 @@
 <title>Radiant Spark Global | US & India</title>
 <style>
   :root {
-    --primary: #3b82f6;   /* Electric Blue */
-    --accent: #1abc9c;    /* Teal */
-    --solar: #f59e0b;     /* Golden Sun */
-    --dark-bg: #020617;
-    --card-bg: rgba(30, 41, 59, 0.9);
+    --primary: #2563eb;   /* Deep Blue */
+    --accent: #059669;    /* Emerald Green */
+    --solar: #d97706;     /* Golden / Solar Orange */
+    --dark-bg: #030712;
+    --card-bg: rgba(17, 24, 39, 0.95);
   }
 
   body { 
     margin: 0; font-family: 'Inter', sans-serif; 
-    background: var(--dark-bg); color: #cbd5e1; 
+    background: var(--dark-bg); color: #e5e7eb; 
     line-height: 1.6; overflow-x: hidden;
   }
 
   /* Vibrant Header */
   header { 
-    background: rgba(15, 23, 42, 0.95);
+    background: rgba(3, 7, 18, 0.95);
     backdrop-filter: blur(15px);
     border-bottom: 2px solid var(--primary);
     padding: 25px; text-align: center; 
@@ -39,21 +39,21 @@
   }
 
   .site-logo {
-    height: 55px;
+    height: 60px;
     width: auto;
     object-fit: contain;
   }
 
   header h1 { 
-    margin: 0; font-size: 2.2rem; font-weight: 800;
-    background: linear-gradient(90deg, #3b82f6, #f59e0b, #1abc9c);
+    margin: 0; font-size: 2.4rem; font-weight: 800;
+    background: linear-gradient(90deg, #2563eb, #d97706, #059669);
     -webkit-background-clip: text; -webkit-text-fill-color: transparent;
   }
   
   nav { margin-top: 5px; }
   nav a { 
-    margin: 0 15px; color: #94a3b8; text-decoration: none;
-    font-size: 0.85rem; font-weight: 600; letter-spacing: 1px;
+    margin: 0 16px; color: #9ca3af; text-decoration: none;
+    font-size: 0.85rem; font-weight: 600; letter-spacing: 1.2px;
     transition: 0.3s; text-transform: uppercase;
   }
   nav a:hover { color: var(--solar); }
@@ -63,84 +63,136 @@
   /* Hero Sections */
   .hero { 
     height: 400px; display: flex; align-items: center; justify-content: center; 
-    text-align: center; border-radius: 30px; background-size: cover; 
+    text-align: center; border-radius: 32px; background-size: cover; 
     background-position: center; position: relative; overflow: hidden;
-    margin-bottom: 50px; border: 1px solid rgba(255,255,255,0.1);
+    margin-bottom: 50px; border: 1px solid rgba(255,255,255,0.08);
   }
 
   .hero::before { 
     content: ''; position: absolute; inset: 0; 
-    background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.8)); 
+    background: linear-gradient(to bottom, rgba(0,0,0,0.4), rgba(0,0,0,0.85)); 
   }
 
-  .hero h2 { position: relative; z-index: 1; font-size: 3.5rem; color: white; text-shadow: 0 4px 15px rgba(0,0,0,0.8); }
+  .hero h2 { position: relative; z-index: 1; font-size: 3.5rem; color: #ffffff; text-shadow: 0 4px 20px rgba(0,0,0,0.9); }
 
   /* Content Styling */
   .about-content {
     background: var(--card-bg);
-    padding: 40px;
-    border-radius: 30px;
-    border: 1px solid rgba(255,255,255,0.1);
+    padding: 45px;
+    border-radius: 32px;
+    border: 1px solid rgba(255,255,255,0.08);
     margin-bottom: 40px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.4);
   }
-  .about-content h2 { color: var(--solar); font-size: 2.2rem; margin-top: 0; }
-  .about-content h3 { color: var(--primary); margin-top: 30px; border-left: 4px solid var(--accent); padding-left: 15px; }
+  .about-content h2 { color: var(--solar); font-size: 2.4rem; margin-top: 0; }
+  .about-content h3 { color: var(--primary); margin-top: 35px; border-left: 5px solid var(--accent); padding-left: 18px; }
   .about-content ul { padding-left: 20px; }
-  .about-content li { margin-bottom: 10px; }
+  .about-content li { margin-bottom: 12px; }
 
   /* Card Grid */
-  .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 30px; }
+  .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 32px; }
 
   .service-card {
-    background: var(--card-bg); border-radius: 25px; overflow: hidden;
-    border: 1px solid rgba(255,255,255,0.1); transition: 0.4s ease-in-out;
+    background: var(--card-bg); border-radius: 28px; overflow: hidden;
+    border: 1px solid rgba(255,255,255,0.08); transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
   }
 
-  .service-card:hover { transform: translateY(-12px); border-color: var(--solar); }
+  .service-card:hover { transform: translateY(-10px); border-color: var(--solar); box-shadow: 0 20px 40px rgba(217, 119, 6, 0.2); }
 
   .logo-box {
     height: 200px; background: #ffffff; display: flex; 
-    align-items: center; justify-content: center; padding: 20px;
+    align-items: center; justify-content: center; padding: 24px;
   }
   .logo-box img { max-width: 100%; max-height: 100%; object-fit: contain; }
 
-  .card-content { padding: 30px; }
+  .card-content { padding: 32px; }
   .card-content h3 { margin-top: 0; color: var(--primary); font-size: 1.6rem; }
   .india-card h3 { color: var(--solar); }
 
+  /* Additional Link Sections */
+  .links-section {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 32px;
+    margin-top: 60px;
+    margin-bottom: 60px;
+  }
+  
+  .link-card {
+    background: var(--card-bg);
+    padding: 35px;
+    border-radius: 28px;
+    border: 1px solid rgba(255,255,255,0.08);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+  }
+
+  .link-card h3 {
+    margin-top: 0;
+    color: var(--accent);
+    font-size: 1.4rem;
+    margin-bottom: 20px;
+  }
+
+  .link-card ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .link-card li {
+    margin-bottom: 12px;
+  }
+
+  .link-card a {
+    color: #cbd5e1;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+
+  .link-card a:hover {
+    color: var(--solar);
+  }
+
   /* Chatbot */
   #chat-toggle {
-    position: fixed; bottom: 30px; right: 30px; 
-    background: linear-gradient(135deg, #3b82f6, #1abc9c); 
-    color: white; border: none; width: 65px; height: 65px; border-radius: 20px; 
-    font-size: 30px; cursor: pointer; box-shadow: 0 10px 30px rgba(59, 130, 246, 0.4); z-index: 1000;
+    position: fixed; bottom: 32px; right: 32px; 
+    background: linear-gradient(135deg, #2563eb, #059669); 
+    color: #ffffff; border: none; width: 68px; height: 68px; border-radius: 20px; 
+    font-size: 30px; cursor: pointer; box-shadow: 0 15px 40px rgba(37, 99, 235, 0.4); z-index: 1000;
+    transition: 0.3s;
+  }
+  #chat-toggle:hover {
+    transform: scale(1.08);
   }
 
   #chatbox {
-    position: fixed; bottom: 110px; right: 30px; width: 350px; height: 500px;
-    background: #1e293b; border-radius: 25px; display: none; flex-direction: column; 
-    z-index: 999; border: 1px solid rgba(255,255,255,0.1); overflow: hidden;
+    position: fixed; bottom: 115px; right: 32px; width: 350px; height: 520px;
+    background: #111827; border-radius: 28px; display: none; flex-direction: column; 
+    z-index: 999; border: 1px solid rgba(255,255,255,0.08); overflow: hidden;
+    box-shadow: 0 25px 50px rgba(0,0,0,0.6);
   }
 
-  #chat-header { background: #0f172a; color: white; padding: 20px; font-weight: bold; }
-  #chat-messages { flex: 1; padding: 15px; overflow-y: auto; display: flex; flex-direction: column; gap: 10px; }
-  .msg { padding: 10px 15px; border-radius: 15px; font-size: 0.9rem; max-width: 80%; }
-  .ai { background: #334155; align-self: flex-start; }
-  .user { background: var(--primary); align-self: flex-end; }
+  #chat-header { background: #030712; color: #ffffff; padding: 20px; font-weight: bold; font-size: 1.1rem; }
+  #chat-messages { flex: 1; padding: 18px; overflow-y: auto; display: flex; flex-direction: column; gap: 12px; }
+  .msg { padding: 12px 18px; border-radius: 16px; font-size: 0.95rem; max-width: 82%; }
+  .ai { background: #1f2937; align-self: flex-start; color: #e5e7eb; }
+  .user { background: var(--primary); align-self: flex-end; color: #ffffff; }
 
-  #chat-form { padding: 15px; display: flex; gap: 10px; background: #0f172a; }
-  #chat-input { flex: 1; background: #1e293b; border: 1px solid #334155; color: white; padding: 10px; border-radius: 10px; outline: none; }
+  #chat-form { padding: 16px; display: flex; gap: 12px; background: #030712; }
+  #chat-input { flex: 1; background: #1f2937; border: 1px solid #374151; color: #ffffff; padding: 10px 14px; border-radius: 12px; outline: none; }
+  #chat-input:focus { border-color: var(--primary); }
 
-  .page { display: none; animation: fadeIn 0.6s ease; }
+  .page { display: none; animation: fadeIn 0.5s ease-in-out; }
   .page.active { display: block; }
-  @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 </style>
 </head>
 <body>
 
 <header>
   <div class="logo-container">
-    <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 500 500' width='100%' height='100%'><defs><linearGradient id='grad1' x1='0%' y1='0%' x2='100%' y2='100%'><stop offset='0%' style='stop-color:%233b82f6;stop-opacity:1' /><stop offset='100%' style='stop-color:%231d4ed8;stop-opacity:1' /></linearGradient><linearGradient id='grad2' x1='0%' y1='0%' x2='100%' y2='100%'><stop offset='0%' style='stop-color:%23f59e0b;stop-opacity:1' /><stop offset='100%' style='stop-color:%23d97706;stop-opacity:1' /></linearGradient></defs><rect width='500' height='500' fill='%23ffffff'/><g><path d='M180,180 L230,180 L290,260 L240,320 Z' fill='url(%23grad2)'/><path d='M180,180 L290,180 C340,180 370,210 350,260 C330,300 290,320 250,320 L210,320 L240,260 L280,260 L250,210 L180,210 Z' fill='url(%23grad1)'/><path d='M160,320 C190,360 260,370 310,330 L310,360 C260,400 180,390 140,340 Z' fill='%2322c55e'/><path d='M350,200 L410,140 L380,120 L330,170 Z' fill='%2394a3b8'/></g></svg>" class="site-logo" alt="Radiant Spark Logo" />
+    <img src="data:image/jpeg;base64,iVBORw0KGgoAAAANSUhEUgAAAlgAAACQCAIAAADg+57NAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAsCSURBVHhe7d13VFTXHQfwvbd9XQoKYkEQlWKiomKjRo0x9o4aNWpUozFGjZoxNpvYNZpEE1QEpbEXO4oFRRFEEBAEFBAURAGF+X33/WBjMpmZmXvmvfdc/u45w7nnd8695/t9c+6cOXOW81/r211FRUWvI3+tF3kH+9H/3z0X3cW7Y/n3VPy6/w9x+K5i/89Gf58b/u/35Z795Tf/z53e6d8+7u9Dvdnff1/Xm/vP7/fO/4z16/u5D9T7x+e/k12+e/g//X5G8/5/g12+5N3e58v/x1P/u7D+m/687+r/ff/L3b/d4B3+d8C8085P/28n31fT61/yD+81f/534xQ/9ff4/eX/f6fXfzT+Pj5/X/74zYy49+Pz919d7d9Q/08+/q8L+v0/Cvrfv7fN9N+24T659P9VpX94119+Gffv9n8/c9z2F93c4b+35r+z7/nff7P/n6/2H76/p6n+r1f+r+p8v+38h+96e5+Nf5f+n6+7/xdfvYv5+yv2588fW/p8T58t+mO/t/f33z/P/P+n1f/z/57/5/5x6//m/0v+3/+ffz+y+P239/6v/+8v/6/P3f3Xl/5e/P8v/534v/m/v29s9f+v6x/vv4/V3+38w+8P9Xf/e98Vd5/v3r/sXv7f36u4N+f+b+2f7//vj+93+3y3437n3a8087O/2X7f+v7ffX77fv0//+/Xv5379+X/37t/X1/6+f/4v91fv5P3f3/3/r6+vv3d/X/f53t/N3fvz5//v/z/P333Xv/5vv3/n/z/3+x/8H1/Xf3f98v//3f7z/X/fvPfv8/773/c/fv+v3vH7/+/y8Pf/t//7u1n//+v/5X97+P7x//9z8v//75N3f/98/f/p/3X//+Xf36+v83//f3l/8/ff3fv9f9v3v/P/fv/f9vX//1Xz6//z7765//f3vv6v/8/t38v/v33/X7v/v1f13//7+v/z7533f8x2dff3//+n99vXv3t7/9jX//f748H39f/v3f9+vv75N/P/z3f98/f37v7u9P/7z9+v9P33r+fv65v/7P/vj49//979+fH569///ff569//z77+/f35d/+v48f7//+3x5P//3//v9P/z7+/7X/3/ev77//7fvz7+f/v//f/v///n9/f7+/3/v///H3f/v///9/n///3/X7/3///v///v///n///n////8//P//n/////n////8P///////9P/v/2b9P/u/2P9f3m9u/r/35d+39u7m5ufn/z9v///764b8P///////v/x//n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n```" class="site-logo" alt="Radiant Sparkle Logo" />
     <h1>Radiant Spark Global</h1>
   </div>
   <nav>
@@ -152,13 +204,13 @@
 
 <main>
   <div id="it-page" class="page active">
-    <div class="hero" style="background-image: url('https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=2070&auto=format&fit=crop')">
+    <div class="hero" style="background-image: url('[https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=2070&auto=format&fit=crop](https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=2070&auto=format&fit=crop)')">
       <h2>Radiant Spark LLC</h2>
     </div>
     <div class="services-grid">
       <div class="service-card">
         <div class="logo-box">
-          <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23f8fafc'/><circle cx='50' cy='50' r='30' fill='none' stroke='%233b82f6' stroke-width='4'/><circle cx='50' cy='50' r='15' fill='%231d4ed8'/><path d='M30,50 L70,50' stroke='%233b82f6' stroke-width='4'/></svg>" alt="US IT Logo">
+          <img src="data:image/svg+xml;utf8,<svg xmlns='[http://www.w3.org/2000/svg](http://www.w3.org/2000/svg)' width='100' height='100' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23f8fafc'/><circle cx='50' cy='50' r='30' fill='none' stroke='%232563eb' stroke-width='4'/><circle cx='50' cy='50' r='15' fill='%231d4ed8'/><path d='M30,50 L70,50' stroke='%232563eb' stroke-width='4'/></svg>" alt="US IT Logo">
         </div>
         <div class="card-content">
           <h3>IT & AI Cloud Infrastructure</h3>
@@ -169,13 +221,13 @@
   </div>
 
   <div id="india-page" class="page">
-    <div class="hero" style="background-image: url('https://images.unsplash.com/photo-1509391366360-fe5bb62935b2?q=80&w=2000&auto=format&fit=crop')">
+    <div class="hero" style="background-image: url('[https://images.unsplash.com/photo-1509391366360-fe5bb62935b2?q=80&w=2000&auto=format&fit=crop](https://images.unsplash.com/photo-1509391366360-fe5bb62935b2?q=80&w=2000&auto=format&fit=crop)')">
       <h2>Radiant Sparkle Industries</h2>
     </div>
     <div class="services-grid">
       <div class="service-card india-card">
         <div class="logo-box">
-          <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23f8fafc'/><circle cx='50' cy='50' r='35' fill='none' stroke='%23f59e0b' stroke-width='6'/><path d='M50,25 L50,55 L70,55' fill='none' stroke='%23d97706' stroke-width='6'/></svg>" alt="EV Logo">
+          <img src="data:image/svg+xml;utf8,<svg xmlns='[http://www.w3.org/2000/svg](http://www.w3.org/2000/svg)' width='100' height='100' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23f8fafc'/><circle cx='50' cy='50' r='35' fill='none' stroke='%23d97706' stroke-width='6'/><path d='M50,25 L50,55 L70,55' fill='none' stroke='%23b45309' stroke-width='6'/></svg>" alt="EV Logo">
         </div>
         <div class="card-content">
           <h3>Solar & EV Charging</h3>
@@ -184,7 +236,7 @@
       </div>
       <div class="service-card india-card">
         <div class="logo-box">
-          <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23f8fafc'/><path d='M35,25 L65,25 L60,85 L40,85 Z' fill='%23f43f5e'/><circle cx='50' cy='25' r='10' fill='%23fb7185'/></svg>" alt="Drinks Logo">
+          <img src="data:image/svg+xml;utf8,<svg xmlns='[http://www.w3.org/2000/svg](http://www.w3.org/2000/svg)' width='100' height='100' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23f8fafc'/><path d='M35,25 L65,25 L60,85 L40,85 Z' fill='%23e11d48'/><circle cx='50' cy='25' r='10' fill='%23be123c'/></svg>" alt="Drinks Logo">
         </div>
         <div class="card-content">
           <h3>Sparkle Beverages</h3>
@@ -193,7 +245,7 @@
       </div>
       <div class="service-card india-card">
         <div class="logo-box">
-          <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23f8fafc'/><rect x='25' y='35' width='50' height='30' rx='5' fill='%2310b981'/><circle cx='35' cy='70' r='8' fill='%231e293b'/><circle cx='65' cy='70' r='8' fill='%231e293b'/></svg>" alt="Distribution Logo">
+          <img src="data:image/svg+xml;utf8,<svg xmlns='[http://www.w3.org/2000/svg](http://www.w3.org/2000/svg)' width='100' height='100' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23f8fafc'/><rect x='25' y='35' width='50' height='30' rx='5' fill='%23059669'/><circle cx='35' cy='70' r='8' fill='%23030712'/><circle cx='65' cy='70' r='8' fill='%23030712'/></svg>" alt="Distribution Logo">
         </div>
         <div class="card-content">
           <h3>Logistics & Distribution</h3>
@@ -224,10 +276,34 @@
       <p style="text-align: center; font-weight: bold; color: var(--solar); margin-top: 20px;">Powering Guntur’s Growth, One Seamless Delivery at a Time.</p>
     </div>
   </div>
+
+  <section class="links-section">
+    <div class="link-card">
+      <h3>Our Services</h3>
+      <ul>
+        <li><a href="#">Business Transformation</a></li>
+        <li><a href="#">Digital Transformation</a></li>
+        <li><a href="#">Artificial Intelligence</a></li>
+        <li><a href="#">Technology</a></li>
+        <li><a href="#">Solutions</a></li>
+        <li><a href="#">IT Consulting</a></li>
+        <li><a href="#">IT-Staffing</a></li>
+      </ul>
+    </div>
+
+    <div class="link-card">
+      <h3>Useful Links</h3>
+      <ul>
+        <li><a href="#">Apply For Job</a></li>
+        <li><a href="#">Join Our Talent group</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </div>
+  </section>
 </main>
 
 <footer>
-  <p>© 2026 Radiant Spark Group | Global Excellence</p>
+  <p style="text-align: center; padding: 20px 0; color: #6b7280;">© 2026 Radiant Spark Group | Global Excellence</p>
 </footer>
 
 <button id="chat-toggle">💬</button>
