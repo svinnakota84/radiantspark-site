@@ -1,1 +1,528 @@
-radiantsparkllc-website.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Radiant Spark Global | US & India</title>
+<style>
+  :root {
+    --primary: #2563eb;   /* Deep Blue */
+    --accent: #059669;    /* Emerald Green */
+    --solar: #d97706;     /* Golden / Solar Orange */
+    --dark-bg: #030712;
+    --card-bg: rgba(17, 24, 39, 0.95);
+  }
+
+  body { 
+    margin: 0; font-family: 'Inter', sans-serif; 
+    background: var(--dark-bg); color: #e5e7eb; 
+    line-height: 1.6; overflow-x: hidden;
+  }
+
+  /* Vibrant Header */
+  header { 
+    background: rgba(3, 7, 18, 0.95);
+    backdrop-filter: blur(15px);
+    border-bottom: 2px solid var(--primary);
+    padding: 25px; text-align: center; 
+    position: sticky; top: 0; z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+  }
+
+  .logo-container {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .site-logo {
+    height: 60px;
+    width: auto;
+    object-fit: contain;
+  }
+
+  header h1 { 
+    margin: 0; font-size: 2.4rem; font-weight: 800;
+    background: linear-gradient(90deg, #2563eb, #d97706, #059669);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  }
+  
+  nav { margin-top: 5px; }
+  nav a { 
+    margin: 0 16px; color: #9ca3af; text-decoration: none;
+    font-size: 0.85rem; font-weight: 600; letter-spacing: 1.2px;
+    transition: 0.3s; text-transform: uppercase;
+  }
+  nav a:hover { color: var(--solar); }
+
+  main { max-width: 1200px; margin: 40px auto; padding: 0 20px; }
+
+  /* Hero Sections */
+  .hero { 
+    height: 400px; display: flex; align-items: center; justify-content: center; 
+    text-align: center; border-radius: 32px; background-size: cover; 
+    background-position: center; position: relative; overflow: hidden;
+    margin-bottom: 50px; border: 1px solid rgba(255,255,255,0.08);
+  }
+
+  .hero::before { 
+    content: ''; position: absolute; inset: 0; 
+    background: linear-gradient(to bottom, rgba(0,0,0,0.4), rgba(0,0,0,0.85)); 
+  }
+
+  .hero h2 { position: relative; z-index: 1; font-size: 3.5rem; color: #ffffff; text-shadow: 0 4px 20px rgba(0,0,0,0.9); }
+
+  /* Content Styling */
+  .about-content {
+    background: var(--card-bg);
+    padding: 45px;
+    border-radius: 32px;
+    border: 1px solid rgba(255,255,255,0.08);
+    margin-bottom: 40px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+  }
+  .about-content h2 { color: var(--solar); font-size: 2.4rem; margin-top: 0; }
+  .about-content h3 { color: var(--primary); margin-top: 35px; border-left: 5px solid var(--accent); padding-left: 18px; }
+  .about-content ul { padding-left: 20px; }
+  .about-content li { margin-bottom: 12px; }
+
+  /* Card Grid */
+  .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 32px; }
+
+  .service-card {
+    background: var(--card-bg); border-radius: 28px; overflow: hidden;
+    border: 1px solid rgba(255,255,255,0.08); transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+  }
+
+  .service-card:hover { transform: translateY(-10px); border-color: var(--solar); box-shadow: 0 20px 40px rgba(217, 119, 6, 0.2); }
+
+  .logo-box {
+    height: 200px; background: #ffffff; display: flex; 
+    align-items: center; justify-content: center; padding: 24px;
+  }
+  .logo-box img { max-width: 100%; max-height: 100%; object-fit: contain; }
+
+  .card-content { padding: 32px; }
+  .card-content h3 { margin-top: 0; color: var(--primary); font-size: 1.6rem; }
+  .india-card h3 { color: var(--solar); }
+
+  /* Additional Link Sections */
+  .links-section {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 32px;
+    margin-top: 60px;
+    margin-bottom: 60px;
+  }
+  
+  .link-card {
+    background: var(--card-bg);
+    padding: 35px;
+    border-radius: 28px;
+    border: 1px solid rgba(255,255,255,0.08);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+  }
+
+  .link-card h3 {
+    margin-top: 0;
+    color: var(--accent);
+    font-size: 1.4rem;
+    margin-bottom: 20px;
+  }
+
+  .link-card ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .link-card li {
+    margin-bottom: 12px;
+  }
+
+  .link-card a {
+    color: #cbd5e1;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+
+  .link-card a:hover {
+    color: var(--solar);
+  }
+
+  /* Chatbot */
+  #chat-toggle {
+    position: fixed; bottom: 32px; right: 32px; 
+    background: linear-gradient(135deg, #2563eb, #059669); 
+    color: #ffffff; border: none; width: 68px; height: 68px; border-radius: 20px; 
+    font-size: 30px; cursor: pointer; box-shadow: 0 15px 40px rgba(37, 99, 235, 0.4); z-index: 1000;
+    transition: 0.3s;
+  }
+  #chat-toggle:hover {
+    transform: scale(1.08);
+  }
+
+  #chatbox {
+    position: fixed; bottom: 115px; right: 32px; width: 350px; height: 520px;
+    background: #111827; border-radius: 28px; display: none; flex-direction: column; 
+    z-index: 999; border: 1px solid rgba(255,255,255,0.08); overflow: hidden;
+    box-shadow: 0 25px 50px rgba(0,0,0,0.6);
+  }
+
+  #chat-header { background: #030712; color: #ffffff; padding: 20px; font-weight: bold; font-size: 1.1rem; }
+  #chat-messages { flex: 1; padding: 18px; overflow-y: auto; display: flex; flex-direction: column; gap: 12px; }
+  .msg { padding: 12px 18px; border-radius: 16px; font-size: 0.95rem; max-width: 82%; }
+  .ai { background: #1f2937; align-self: flex-start; color: #e5e7eb; }
+  .user { background: var(--primary); align-self: flex-end; color: #ffffff; }
+
+  #chat-form { padding: 16px; display: flex; gap: 12px; background: #030712; }
+  #chat-input { flex: 1; background: #1f2937; border: 1px solid #374151; color: #ffffff; padding: 10px 14px; border-radius: 12px; outline: none; }
+  #chat-input:focus { border-color: var(--primary); }
+
+  .page { display: none; animation: fadeIn 0.5s ease-in-out; }
+  .page.active { display: block; }
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo-container">
+    <img src="data:image/jpeg;base64,iVBORw0KGgoAAAANSUhEUgAAAlgAAACQCAIAAADg+57NAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAsCSURBVHhe7d13VFTXHQfwvbd9XQoKYkEQlWKiomKjRo0x9o4aNWpUozFGjZoxNpvYNZpEE1QEpbEXO4oFRRFEEBAEFBAURAGF+X33/WBjMpmZmXvmvfdc/u45w7nnd8695/t9c+6cOXOW81/r211FRUWvI3+tF3kH+9H/3z0X3cW7Y/n3VPy6/w9x+K5i/89Gf58b/u/35Z795Tf/z53e6d8+7u9Dvdnff1/Xm/vP7/fO/4z16/u5D9T7x+e/k12+e/g//X5G8/5/g12+5N3e58v/x1P/u7D+m/687+r/ff/L3b/d4B3+d8C8085P/28n31fT61/yD+81f/534xQ/9ff4/eX/f6fXfzT+Pj5/X/74zYy49+Pz919d7d9Q/08+/q8L+v0/Cvrfv7fN9N+24T659P9VpX94119+Gffv9n8/c9z2F93c4b+35r+z7/nff7P/n6/2H76/p6n+r1f+r+p8v+38h+96e5+Nf5f+n6+7/xdfvYv5+yv2588fW/p8T58t+mO/t/f33z/P/P+n1f/z/57/5/5x6//m/0v+3/+ffz+y+P239/6v/+8v/6/P3f3Xl/5e/P8v/534v/m/v29s9f+v6x/vv4/V3+38w+8P9Xf/e98Vd5/v3r/sXv7f36u4N+f+b+2f7//vj+93+3y3437n3a8087O/2X7f+v7ffX77fv0//+/Xv5379+X/37t/X1/6+f/4v91fv5P3f3/3/r6+vv3d/X/f53t/N3fvz5//v/z/P333Xv/5vv3/n/z/3+x/8H1/Xf3f98v//3f7z/X/fvPfv8/773/c/fv+v3vH7/+/y8Pf/t//7u1n//+v/5X97+P7x//9z8v//75N3f/98/f/p/3X//+Xf36+v83//f3l/8/ff3fv9f9v3v/P/fv/f9vX//1Xz6//z7765//f3vv6v/8/t38v/v33/X7v/v1f13//7+v/z7533f8x2dff3//+n99vXv3t7/9jX//f748H39f/v3f9+vv75N/P/z3f98/f37v7u9P/7z9+v9P33r+fv65v/7P/vj49//979+fH569///ff569//z77+/f35d/+v48f7//+3x5P//3//v9P/z7+/7X/3/ev77//7fvz7+f/v//f/v///n9/f7+/3/v///H3f/v///9/n///3/X7/3///v///v///n///n////8//P//n/////n////8P///////9P/v/2b9P/u/2P9f3m9u/r/35d+39u7m5ufn/z9v///764b8P///////v/x//n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n/n```" class="site-logo" alt="Radiant Sparkle Logo" />
+    <h1>Radiant Spark Global</h1>
+  </div>
+  <nav>
+    <a href="#it" id="nav-it">Technology (USA)</a>
+    <a href="#india" id="nav-india">Industries (India)</a>
+    <a href="#about" id="nav-about">About Our Vision</a>
+  </nav>
+</header>
+
+<main>
+
+  <div id="it-page" class="page active">
+    <div class="hero" style="background-image: url('[https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=2070&auto=format&fit=crop](https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=2070&auto=format&fit=crop)')">
+      <h2>Radiant Spark LLC</h2>
+    </div>
+
+    <p class="section-label">IT &amp; AI Services — USA Operations</p>
+    <div class="it-services-grid">
+
+      <div class="it-card">
+        <div class="it-card-icon" style="background:rgba(37,99,235,0.14)">🔄</div>
+        <div>
+          <h4>Business Transformation</h4>
+          <p>End-to-end enterprise re-engineering and process optimisation for sustainable growth.</p>
+        </div>
+      </div>
+
+      <div class="it-card">
+        <div class="it-card-icon" style="background:rgba(99,102,241,0.14)">🌐</div>
+        <div>
+          <h4>Digital Transformation</h4>
+          <p>Modernise operations with cloud-first strategies, automation and digital innovation.</p>
+        </div>
+      </div>
+
+      <div class="it-card">
+        <div class="it-card-icon" style="background:rgba(217,119,6,0.14)">🤖</div>
+        <div>
+          <h4>Artificial Intelligence</h4>
+          <p>AI strategy, model deployment and advanced AI server infrastructure for enterprise scale.</p>
+        </div>
+      </div>
+
+      <div class="it-card">
+        <div class="it-card-icon" style="background:rgba(5,150,105,0.14)">⚙️</div>
+        <div>
+          <h4>Technology</h4>
+          <p>Cloud infrastructure, system integration and enterprise technology implementation.</p>
+        </div>
+      </div>
+
+      <div class="it-card">
+        <div class="it-card-icon" style="background:rgba(20,184,166,0.14)">🧩</div>
+        <div>
+          <h4>Solutions</h4>
+          <p>Custom software development and platform solutions tailored precisely to client needs.</p>
+        </div>
+      </div>
+
+      <div class="it-card">
+        <div class="it-card-icon" style="background:rgba(59,130,246,0.14)">🖥️</div>
+        <div>
+          <h4>IT Consulting</h4>
+          <p>Oracle Fusion HCM consulting, SQL troubleshooting and strategic systems advisory.</p>
+        </div>
+      </div>
+
+      <div class="it-card">
+        <div class="it-card-icon" style="background:rgba(139,92,246,0.14)">👔</div>
+        <div>
+          <h4>IT Staffing</h4>
+          <p>Skilled technology talent placement and workforce solutions across the United States.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div id="india-page" class="page">
+    <div class="hero" style="background-image: url('[https://images.unsplash.com/photo-1509391366360-fe5bb62935b2?q=80&w=2000&auto=format&fit=crop](https://images.unsplash.com/photo-1509391366360-fe5bb62935b2?q=80&w=2000&auto=format&fit=crop)')">
+      <h2>Radiant Sparkle Industries</h2>
+    </div>
+
+    <p class="section-label">India Divisions — Guntur &amp; Amaravati, Andhra Pradesh</p>
+    <div class="services-grid">
+
+      <div class="service-card india-card">
+        <div class="icon-box gold">⚡</div>
+        <div class="card-content">
+          <span class="tag tag-india">India · Andhra Pradesh</span>
+          <h3>Solar &amp; EV Charging</h3>
+          <p>Developing solar power solutions and a robust EV charging station network to build a clean, sustainable energy future across Guntur and Andhra Pradesh.</p>
+        </div>
+      </div>
+
+      <div class="service-card india-card">
+        <div class="icon-box red">🥤</div>
+        <div class="card-content">
+          <span class="tag tag-india">India · FSSAI Licensed</span>
+          <h3>Sparkle Beverages</h3>
+          <p>Premium drink manufacturing and wholesale distribution across the Indian market, operating under full FSSAI licensing and GST compliance.</p>
+        </div>
+      </div>
+
+      <div class="service-card india-card">
+        <div class="icon-box green">🚚</div>
+        <div class="card-content">
+          <span class="tag tag-india">India · Distribution</span>
+          <h3>Sparkle Distribution Network</h3>
+          <p>In-house supply chain and last-mile delivery network serving Sparkle Beverages and cargo across the region using a solar-powered shared fleet.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div id="about-page" class="page">
+    <div class="about-content">
+      <h2>About Radiant Spark Global</h2>
+      <p>Radiant Sparkle Distribution Industries Pvt Ltd is a premier multi-sector enterprise delivering excellence and innovation across the rapidly developing landscapes of Guntur and Amaravati, Andhra Pradesh — with a specialised technology arm, Radiant Spark LLC, operating in the United States.</p>
+      <p>We are a unified corporate entity, synergising key industries — renewables, F&amp;B, distribution, logistics, and IT — under one professional global banner.</p>
+
+      <h3>Our Integrated Divisions</h3>
+      <ul>
+        <li><strong>Renewables: Solar &amp; EV Infrastructure</strong><br>Developing solar power solutions and a robust EV charging station network to build a sustainable future.</li>
+        <li><strong>Sparkle Beverages</strong><br>Home of the Sparkle Brand Drinks — wholesale and logistics with full FSSAI licensing and GST compliance.</li>
+        <li><strong>Sparkle Distribution Network</strong><br>Our own in-house distribution and last-mile delivery fleet, eliminating third-party dependencies and powered by solar energy.</li>
+        <li><strong>Information Technology &amp; Consulting (USA)</strong><br>Radiant Spark LLC delivers Business Transformation, Digital Transformation, Artificial Intelligence, Technology, Solutions, IT Consulting and IT Staffing services across the United States.</li>
+      </ul>
+
+      <h3>Creating a Unified Synergy Hub</h3>
+      <p>We operate as a strategically synchronised system. Our delivery fleet serves multiple roles — distributing F&amp;B and cargo from a central hub. Our entire operation is progressively powered by our own clean solar energy.</p>
+
+      <p style="text-align:center; font-weight:700; color:var(--solar); margin-top:28px; font-size:1.05rem;">
+        "Powering Guntur's Growth, One Seamless Delivery at a Time."
+      </p>
+    </div>
+  </div>
+
+  <section class="links-section">
+    <div class="link-card">
+      <h3>🖥️ Our Services</h3>
+      <ul>
+        <li><a href="#">Business Transformation</a></li>
+        <li><a href="#">Digital Transformation</a></li>
+        <li><a href="#">Artificial Intelligence</a></li>
+        <li><a href="#">Technology</a></li>
+        <li><a href="#">Solutions</a></li>
+        <li><a href="#">IT Consulting</a></li>
+        <li><a href="#">IT Staffing</a></li>
+      </ul>
+    </div>
+
+    <div class="link-card">
+      <h3>🔗 Useful Links</h3>
+      <ul>
+        <li><a href="#">Apply For Job</a></li>
+        <li><a href="#">Join Our Talent Group</a></li>
+        <li><a href="#" onclick="event.preventDefault(); document.getElementById('chat-toggle').click()">Contact</a></li>
+      </ul>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <p>© 2026 Radiant Spark Global &nbsp;|&nbsp; Radiant Spark LLC (USA) &nbsp;·&nbsp; Radiant Sparkle Distribution Industries Pvt Ltd (India) &nbsp;|&nbsp; Global Excellence</p>
+</footer>
+
+<button id="chat-toggle" title="Chat with Radiant Intelligence">💬</button>
+
+<div id="chatbox">
+  <div id="chat-header">
+    <div class="chat-avatar-head">🤖</div>
+    <div>
+      <div class="chat-head-text">Radiant Intelligence</div>
+      <div class="chat-head-status">● Online — AI Powered</div>
+    </div>
+  </div>
+  <div id="chat-messages">
+    <div class="msg ai">Welcome to Radiant Spark Global! I can help with our IT services, Solar &amp; EV solutions, Sparkle Beverages, distribution network, careers, and more. How can I assist you today?</div>
+  </div>
+  <div class="quick-replies-wrap" id="quickReplies">
+    <button class="qr" onclick="sendQuick('What IT services does Radiant Spark LLC offer?')">💻 IT Services</button>
+    <button class="qr" onclick="sendQuick('Tell me about your EV charging stations')">⚡ EV &amp; Solar</button>
+    <button class="qr" onclick="sendQuick('How does the Sparkle Distribution Network work?')">🚚 Distribution</button>
+    <button class="qr" onclick="sendQuick('Tell me about Sparkle Beverages')">🥤 Beverages</button>
+    <button class="qr" onclick="sendQuick('How can I apply for a job at Radiant Spark?')">📝 Careers</button>
+    <button class="qr" onclick="sendQuick('Tell me about IT Staffing services')">👔 IT Staffing</button>
+  </div>
+  <form id="chat-form">
+    <input type="text" id="chat-input" placeholder="Ask a question…" autocomplete="off" />
+    <button type="submit" id="chat-send">↑</button>
+  </form>
+</div>
+
+<div style="display:none;">
+  <pre>
+    <code>
+cd /mnt/user-data/uploads
+base64 -w 0 image.png > /home/claude/logo_industries.b64
+base64 -w 0 image__2_.png > /home/claude/logo_distribution.b64
+base64 -w 0 image__1_.png > /home/claude/logo_drinks_ev.b64
+wc -c /home/claude/logo_industries.b64 /home/claude/logo_distribution.b64 /home/claude/logo_drinks_ev.b64
+    </code>
+  </pre>
+</div>
+
+<script>
+/* ── Page navigation ── */
+function updatePage() {
+  const hash = window.location.hash || '#it';
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('nav a').forEach(a => a.classList.remove('active-nav'));
+
+  if (hash === '#india') {
+    document.getElementById('india-page').classList.add('active');
+    document.getElementById('nav-india').classList.add('active-nav');
+  } else if (hash === '#about') {
+    document.getElementById('about-page').classList.add('active');
+    document.getElementById('nav-about').classList.add('active-nav');
+  } else {
+    document.getElementById('it-page').classList.add('active');
+    document.getElementById('nav-it').classList.add('active-nav');
+  }
+}
+window.addEventListener('hashchange', updatePage);
+window.addEventListener('load', updatePage);
+
+/* ── Chatbot toggle ── */
+const toggle  = document.getElementById('chat-toggle');
+const chatbox = document.getElementById('chatbox');
+toggle.addEventListener('click', () => {
+  chatbox.classList.toggle('open');
+  toggle.textContent = chatbox.classList.contains('open') ? '✕' : '💬';
+});
+
+/* ── AI Chat ── */
+const SYSTEM_PROMPT = `You are Radiant Intelligence, the official AI assistant for Radiant Spark Global — a multi-sector enterprise headquartered in Guntur and Amaravati, Andhra Pradesh, India, with US IT operations under Radiant Spark LLC (radiantsparkllc.com).
+
+INDIA DIVISIONS:
+1. Solar & EV Charging – Solar power solutions and EV charging station networks across Andhra Pradesh.
+2. Sparkle Beverages – Premium drink manufacturing and wholesale distribution. FSSAI licensed, GST compliant.
+3. Sparkle Distribution Network – In-house last-mile delivery fleet serving Sparkle Beverages and cargo, powered by solar energy.
+
+USA DIVISIONS — Radiant Spark LLC:
+4. Business Transformation – End-to-end enterprise re-engineering and process optimisation.
+5. Digital Transformation – Cloud-first modernisation, automation and digital strategy.
+6. Artificial Intelligence – AI strategy, model deployment and AI server infrastructure.
+7. Technology – Cloud infrastructure, system integration and enterprise tech.
+8. Solutions – Custom software development and platform solutions.
+9. IT Consulting – Oracle Fusion HCM, SQL troubleshooting, systems advisory.
+10. IT Staffing – Technology talent placement and workforce solutions across the USA.
+
+USEFUL LINKS: Apply For Job, Join Our Talent Group, Contact.
+Tagline: "Powering Guntur's Growth, One Seamless Delivery at a Time."
+Website: radiantsparkllc.com
+
+Be friendly, concise and professional. Keep replies under 3 sentences unless detail is needed. Help customers with services, careers, EV, beverages, distribution, and IT consulting questions.`;
+
+let chatHistory = [];
+const msgsEl = document.getElementById('chat-messages');
+
+function addMsg(text, type) {
+  const div = document.createElement('div');
+  div.className = 'msg ' + type;
+  div.textContent = text;
+  msgsEl.appendChild(div);
+  msgsEl.scrollTop = msgsEl.scrollHeight;
+  return div;
+}
+
+function addTyping() {
+  const div = document.createElement('div');
+  div.className = 'msg ai';
+  div.id = 'typing-ind';
+  div.innerHTML = '<span class="typing-dots"><span>●</span><span>●</span><span>●</span></span>';
+  msgsEl.appendChild(div);
+  msgsEl.scrollTop = msgsEl.scrollHeight;
+}
+function removeTyping() {
+  const el = document.getElementById('typing-ind');
+  if (el) el.remove();
+}
+
+function sendQuick(text) {
+  document.getElementById('quickReplies').style.display = 'none';
+  go(text);
+}
+
+function go(text) {
+  addMsg(text, 'user');
+  chatHistory.push({ role: 'user', content: text });
+  addTyping();
+  callAPI();
+}
+
+document.getElementById('chat-form').addEventListener('submit', e => {
+  e.preventDefault();
+  const inp = document.getElementById('chat-input');
+  const val = inp.value.trim();
+  if (!val) return;
+  inp.value = '';
+  document.getElementById('quickReplies').style.display = 'none';
+  go(val);
+});
+
+async function callAPI() {
+  try {
+    const res = await fetch('[https://api.anthropic.com/v1/messages](https://api.anthropic.com/v1/messages)', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        model: 'claude-sonnet-4-20250514',
+        max_tokens: 1000,
+        system: SYSTEM_PROMPT,
+        messages: chatHistory
+      })
+    });
+    const data = await res.json();
+    removeTyping();
+    const reply = data?.content?.[0]?.text || "I'm having trouble connecting. Please try again shortly.";
+    chatHistory.push({ role: 'assistant', content: reply });
+    addMsg(reply, 'ai');
+  } catch (err) {
+    removeTyping();
+    const e = addMsg('Connection error — please try again.', 'ai');
+    e.style.color = '#f87171';
+  }
+}
+</script>
+</body>
+</html>
